@@ -1,0 +1,126 @@
+{% extends "account.html"%}
+{% load staticfiles %}
+{% block data%}
+{% if name  %}
+
+<div class="conainer-fuid" style="margin:20px;font-size: 30px;">
+
+<div class="container" style="background:#fafafa;border-radius: 10px;font-size: 22px;line-height: 1.7;">
+	<!-- <img src="/media/{{ pic }}" style="float:right;border-radius: 20%;width:300px;height:300px;" /> -->
+	
+
+
+	
+<div style="padding:20px">
+	<div style="border-radius:5px;color:white;">
+		<div class="row">
+			<div class="col-md-6 hit-prof prof-odd"><div style="margin:auto;">User Id</div></div>
+			<div class="col-md-6 hit-prof prof-odd"><div style="margin:auto;">{{username}}</div></div>
+		</div> 
+		<div class="row"> 
+			<div class="col-md-6 hit-prof prof-even"><div style="margin:auto;">Sex</div></div>
+			<div class="col-md-6 hit-prof prof-even"><div style="margin:auto;">{{sex}}</div></div>	
+		</div> 
+		<div class="row">
+			<div class="col-md-6 hit-prof prof-odd"><div style="margin:auto;">Email Id</div></div>
+			<div class="col-md-6 hit-prof prof-odd"><div style="margin:auto;">{{email}}</div></div>
+		</div> 
+		<div class="row"> 
+			<div class="col-md-6 hit-prof prof-even"><div style="margin:auto;">Contact No.</div></div>
+			<div class="col-md-6 hit-prof prof-even"><div style="margin:auto;">{{contact_no}}</div></div>	
+		</div> 
+		<div class="row">
+			<div class="col-md-6 hit-prof prof-odd"><div style="margin:auto;">Address</div></div>
+			<div class="col-md-6 hit-prof prof-odd"><div style="margin:auto;">{{address}}</div></div>
+		</div> 
+		<div class="row"> 
+			<div class="col-md-6 hit-prof prof-even"><div style="margin:auto;">Area Code</div></div>
+			<div class="col-md-6 hit-prof prof-even"><div style="margin:auto;">{{area_code}}</div></div>	
+		</div> 
+		<div class="row">
+			<div class="col-md-6 hit-prof prof-odd"><div style="margin:auto;">Joining Date</div></div>
+			<div class="col-md-6 hit-prof prof-odd"><div style="margin:auto;">{{joining_date}}</div></div>
+		</div> 
+		<div class="row" style="width:100%">
+			<div class="col-md-8" style="width:100%"></div>
+			<div class="col-md-4 col-12" style="width:100%;text-align:right">
+				<a href="{% url 'edit_profile' request.user.username %}" class="btn btn-lg btn-success" style="width:100%;float:right">Edit</a>
+			</div>
+		</div> 
+	</div>
+</div>
+
+
+
+	
+</div>
+	<br>
+</div>
+{% else %}
+<div style="height:300px;display:flex;">
+	<div style="margin:auto;">
+		<a href="{% url 'edit_profile' request.user.username%}"><button  class="btn btn-primary " type="submit" href=""  style="">Tell us about yourself</button>	</a>
+	</div>
+	
+</div>
+{% endif %}
+{%endblock data%}
+
+
+<div>
+			<div>
+				<div class="row">
+					<div class="col-md-3">
+						Sex
+					</div>
+					<div class="col-md-6">
+						{{ sex }}
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-3">
+						Email Id
+					</div>
+					<div class="col-md-6">
+						{{ email }}
+					</div>
+					
+				</div>
+				<div class="row">
+					<div class="col-md-3">
+						Username
+					</div>
+					<div class="col-md-6">
+						{{ username }}
+					</div>
+					
+				</div>
+				<div class="row">
+					<div class="col-md-3">
+						Contact No.
+					</div>
+					<div class="col-md-6">
+						{{ contact_no }}
+					</div>
+					
+				</div>
+				<div class="row">
+					<div class="col-md-3">
+						Address
+					</div>
+					<div class="col-md-6">
+						{{ address }}
+					</div>
+					
+				</div>
+				<div class="row">
+					<div class="col-md-3">
+						JOiing Date
+					</div>
+					<div class="col-md-6">
+						{{ joining_date }}
+					</div>
+					
+				</div>
+			</div>
+	</div>

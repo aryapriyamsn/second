@@ -1,0 +1,20 @@
+{% extends "account.html"%}
+{%load crispy_forms_tags%}
+{%block data%}
+{{title}}
+{% if message %}
+{{message}}
+<a class="btn btn-lg btn-success" href="{% url 'subscribe' %}" role="button">Get Started</a>
+{%else%}
+<div class = ="container">
+	<div class = "col-md-4">
+		<form method='POST'>{%csrf_token%}
+			{{form|crispy}}
+			<input class="btn btn-primary " type="submit" value="submit" name="submit" style="width:100%">
+		</form>
+	</div>
+</div>
+{% endif %}
+	
+{% endblock data%}
+

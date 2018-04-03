@@ -1,0 +1,18 @@
+{% extends "account.html" %}
+{% block data%}
+	<div class="container-fluid">
+		<div style="background-color: #52658f;padding:0px 10px">
+			<h3 class="data_data"> Your bills are as follows</h3>
+		</div>
+		<div class="">
+			<div style="margin:20px">
+				{% for paper in queryset %}
+					<h5>{{paper.title}} : {% widthratio days 1 paper.price%}  (for {{days}}days)</h5>
+				{%endfor%}
+			</div>
+			<div style="background-color: #52658f;padding:0px 10px">
+				<h3 class="data_data">total bill: {{bill}}</h3>
+			</div>
+		</div>
+	</div>
+{% endblock data %}

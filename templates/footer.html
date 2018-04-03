@@ -1,0 +1,100 @@
+{%load staticfiles%}
+<div class="footer" style="background-color: #1f1f1f;box-shadow: 0 0 1px #1f1f1f;position:relative;">
+  <div class="container" style="">
+    <div class="row">
+      <div class="col-md-8" style="height: 225px;">
+        <div class="heading-footer1" style="">
+          <h4 style="color: #fff;font-weight: 200;">
+            Papers
+          </h4>
+        </div>
+        <div>
+          <p style="color: #fafafa;font-weight: 100;font-size: 13px;">The Time Of India | Hindustan Times | Navbharat Times | Business Standard | Employment News | The Hindu | Devbhoomi<br>
+            <a href="{% url 'all_newspapers' %}"><span class="footer_link"><u>and more ...</u></span></a>
+          </p>
+
+        </div>
+      </div>
+      <div class="col-md-4" style="height: 225px">
+        <div class="heading-footer1" style="">
+          <h4 style="color: #fff;font-weight: 200;">
+            Be a part of the Tradition
+          </h4>
+        </div>
+        <div> 
+          <p style="color: #fafafa;font-weight: 100;font-size: 13px;">Don't miss any opportunity to access offers and updates from us.</p>
+        </div>
+        <div>
+          <div>{% include 'newsletter_form.html' %}</div>
+          
+        </div>
+      </div>
+      
+    </div>
+    <div class="row">
+      <div class="col-md-8" style="height: 225px;">
+        <div class="heading-footer1" style="">
+          <h4 style="color: #fff;font-weight: 200;">
+            Contact Us
+          </h4>
+        </div>
+        <div style="padding:6px;margin-top: 30px;">
+          <i class="fa fa-envelope fa-2x" aria-hidden="true" style="color:#fafafa;font-size: 20px;">&nbsp&nbsp&nbspinfo@sightnext.com</i><br>  
+          <i class="fa fa-phone fa-2x" aria-hidden="true" style="color:#fafafa;font-size: 20px;">&nbsp&nbsp&nbsp+91-xxxxxxxxxx</i>  
+          </p>
+
+        </div>
+      </div>
+      <div class="col-md-4" style="height: 225px">
+        <div class="heading-footer1" style="">
+          <h4 style="color: #fff;font-weight: 200;">
+            Paymenyt options
+          </h4>
+        </div>
+        <div> 
+          <p style="color: #fafafa;font-weight: 100;font-size: 13px;"></p>
+        </div>
+        <div>
+          <div></div>
+          
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</div>
+<div class="footer" style="background-color: #1f1f1f;box-shadow: 0 0 1px #fafafa;position:relative;">
+  <div class="container" style="padding:5px 0">
+    <div class="row" style="margin: 0px 0px;">
+      <div class="col-md-8 col-sm-8">
+        <div class="row second-footer" style="font-size: 15px;color: #fff;">
+          
+            <ul>
+              <li><a href="{% url 'privacy' %}" style="font-size: 11px;">Privacy Policy</a></li>
+              <li><a href="{% url 'contact'%}" style="font-size: 11px;">Contact Us</a></li>
+              <li><a href="{% url 'all_newspapers' %}" style="font-size: 11px;">Newspapers</a></li>
+              <li><a href="{% url 'all_newspapers' %}" style="font-size: 11px;">Services</a></li>
+              <li><a href="{% url 'all_newspapers' %}" style="font-size: 11px;" >Terms and Conditions</a></li>
+              <li><a href="{% url 'faqs' %}" style="font-size: 11px;" >FAQ's</a></li>
+            </ul>
+          
+        </div>
+        <div class="row " style="font-size: 15px;color: #fff;">
+          <div style=" padding: 4px 0px;">
+            <p style="margin-top: 0px;">&copy2017 | Sightnext Informatics Pvt. Ltd.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-4" style="text-align: right;display:flex;">
+        <div style="margin:auto 0px auto auto ">
+          <ul style="color:#fafafa">
+            <li><a href="https://www.facebook.com/sightnext/" target='-blank'><i class="fa fa-facebook-square fa-2x" aria-hidden="true"></i></a></li>
+            <li><a href="https://in.linkedin.com/company/sightnext-pvt.ltd." target="_blank"><i class="fa fa-linkedin-square fa-2x" aria-hidden="true"></i></a></li>
+            <li><a href="https://twitter.com/sightnext" target="_blank"><i class="fa fa-twitter-square fa-2x" aria-hidden="true"></i></a></li>
+            <li><a href="https://instagram.com/sightnext" target="_blank"><i class="fa fa-instagram fa-2x" aria-hidden="true"></i></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>  
+  </div>
+</div>

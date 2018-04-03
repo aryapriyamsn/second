@@ -1,0 +1,29 @@
+{% load staticfiles	 %}
+
+
+
+
+<div >
+  <div class="container">
+    
+  
+  <nav class="navbar navbar-expand-lg navbar-light">
+      <a class="navbar-brand" href="{% url 'home' %}"><img  src='{% static "logo/logo white.jpg" %}' style="width:50px;height:50px;border-radius:5px"></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-item nav-link {% if nbar == 'home' %}active{% endif %}" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
+          {% if user == "AnonymousUser" %}
+          <a class="nav-item nav-link {% if nbar == 'signin' %}active{% endif %}" href="{% url 'signup' %}">SignIn/SignUp</a>
+        {% else %}
+          <a class="nav-item nav-link {% if nbar == 'account' %}active{% endif %}" href="{% url 'subscription' %}">Account</a>
+        {%endif%}
+          <a class="nav-item nav-link " href="#">Services</a>
+          <a class="nav-item nav-link " href="#">Daily digest</a>
+        </div>
+      </div>
+  </nav>
+  </div>
+</div>  

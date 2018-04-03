@@ -1,0 +1,550 @@
+{%load staticfiles%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <title>trial</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link href='https://fonts.googleapis.com/css?family=Rambla' rel='stylesheet'>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/new_design.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/custom.css' %}">
+  <link href='https://fonts.googleapis.com/css?family=Reem Kufi' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Righteous' rel='stylesheet'>
+  <link rel="stylesheet" type="text/css" href="{% static 'css/custom_dummy.css' %}">
+  
+</head>
+<body>
+<!-- NAVBAR -->
+<div >
+  <div class="container">
+    
+  
+  <nav class="navbar navbar-expand-lg navbar-light">
+      <a class="navbar-brand" href="{% url 'home' %}"><img  src='{% static "logo/logo white.jpg" %}' style="width:50px;height:50px;border-radius:5px"></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-item nav-link {% if nbar == 'home' %}active{% endif %}" href="#">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-item nav-link" href="#">Features</a>
+          <a class="nav-item nav-link" href="#">Pricing</a>
+          <a class="nav-item nav-link disabled" href="#">Disabled</a>
+        </div>
+      </div>
+  </nav>
+  </div>
+</div>  
+<!-- NAVBAR ENDS -->
+
+    <!-- COMPANY NAME -->
+
+    <div style="display:flex">
+      <span class="company_name" style="">
+        Sightnext
+      </span>
+    </div>
+
+
+    <!-- COMPANY NAME ENDS -->
+
+<!-- BANNER -->
+
+<!-- <div style="display:flex;background-color:#9da5a8;margin-top: 1em;width:100%">
+  <div class="container" style="display:flex; width:100%">
+      <div style="margin:auto; text-align:center;padding-top:40px;" >
+        <span class="banner_head1" style="">DELIVERING NEWSPAPER</span>
+        <p></p>
+        <span class="banner_head2" style="">DIRECT TO YOUR DOOR</span>
+        <h4 style="font-family: 'Rambla';margin-top: 2em;color:#ffffff;">Find out if we deliver in your area</h4>
+        
+        <div>
+          <form action="{% url 'check' %}" method="POST" style="margin:auto;max-width:100px">{%csrf_token%}
+                <input type="text" class="searchTerm" placeholder="Enter pincode" name="pin">
+                <button type="submit" class="searchButton">
+                  <i class="fa fa-search"></i>
+                </button>
+        
+                <br><br>
+              </form>  
+        </div>
+        <form class="example" action="{% url 'check' %}" method="POST" style="margin:auto;max-width:300px">{%csrf_token%}
+          <input type="text" placeholder="Pincode" name="pin" style="">
+          <button type="submit"><i class="fa fa-search"></i></button>
+        </form>
+        <h5 style="font-family: 'Rambla';margin-top: 2em;color:#fafafa;">Already have an account?</h5>
+        <a href=""><button class="login_button" type="submit" style="cursor:pointer;"><span class="button_text" style="">Login</span>  </button></a>
+        <br>
+        <br>
+      </div>
+      <br>
+      
+  </div>
+</div>
+<div class="row" style="background-color: #9da5a8;color:#fafafa;margin-left:0px;margin-right: 0px;">
+    <div class="col-md-4 steps" >
+      <span style="font-size:30px;">01</span> <span style="margin-bottom:50%;">Select newspaper</span>
+    </div>
+    <div class="col-md-4 steps" >
+      <span style="font-size:30px;">02</span> Provide delivery details
+    </div>
+    <div class="col-md-4 steps" >
+      <span style="font-size:30px;">03</span> Get newspaper on your door
+    </div>
+</div>
+
+BANNER ENDS
+
+BODY
+<div>
+  <div class="container" style="display:flex;margin-top:60px ;margin-bottom:20px;">
+    <div style="margin:auto;">
+      <h1 style="font-weight:200;">Subscribe to your newspaper right now.</h1>
+      <form class="example" action="{% url 'check' %}" method="POST" style="margin:auto;max-width:300px;margin-top: 30px;">{%csrf_token%}
+            <input type="text" placeholder="Mobile Number" name="pin" style="width:100%;">
+            <input type="text" placeholder="Newspaper" name="pin" style="width:100%;margin-top:2px">
+            <button class=" button_all" type="submit" style="width:100%;margin-top: 5px;"><span style="font-size: 1.4em;font-weight: 200;letter-spacing: 2px;">Subscribe</span> </button>
+      </form>
+    </div>
+  </div>
+  <div class="container" style="display:flex">
+    <div style="margin :auto;text-align: center; margin-top:20px;">
+      <h2 style="font-weight:200;">Or</h2>
+
+          <a style="cursor:pointer;" ><ul style="color:#262321;margin-top:25px;">
+            
+            <li><i class="fa fa-phone fa-2x" aria-hidden="true"></i></li>
+            <li><i class="fa fa-comments fa-2x" aria-hidden="true"></i></li>
+            <li><i class="fa fa-whatsapp fa-2x" aria-hidden="true"></i></li>
+            <li><i class="fa fa-facebook-square fa-2x" aria-hidden="true"></i></li>
+            <li><i class="fa fa-envelope fa-2x" aria-hidden="true"></i></li>
+            
+          </ul></a>
+        </div>
+  </div> 
+</div> 
+<p style="font-size:30">&nbsp</p>
+<hr width="100%">
+<DIV style="display: flex;">
+  <H3 style="margin:auto;max-width:100px">hello</H3>
+</DIV>
+account dashboard
+<div class="container">
+  <div style="margin-top: 2em;">
+    <div class="col-md-12 col-sm-12 gap">
+      <div style="background-color: rgba(255, 255, 255, 0.62); border-radius:5px;padding:5px">
+        <div class="col-md-12">
+          <div style="text-align: center; display:flex"><h2 style="margin:auto; padding:5px;border-top: 2px solid;border-bottom: 2px solid;"> <STRONG>DASHBOARD MANAGEMENT</STRONG> </h2></div>
+        </div>
+        <div style="text-align: center;"><p>you can manage and customize your newspaper order in your dashboard </p></div>
+        <div style="text-align: center;"><a href=""><button class="manage_button">Manage your account</button></a></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+steps to follow
+<div class="container">
+  <div style="margin-top: 2em;">
+    <div class="col-md-12 col-sm-12 gap">
+      <div style="background-color: rgba(255, 255, 255, 0.62); border-radius:5px;padding:5px">
+        <div class="col-md-12">
+          <div style="text-align: center;"><h2>Steps To Follow</h2></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+Assistance
+<div class="container">
+  <div style="margin-top: 2em;">
+    <div class="col-md-12 col-sm-12 gap">
+      <div style="background-color: rgba(255, 255, 255, 0.62); border-radius:5px;padding:5px">
+        <div class="col-md-12">
+          <div style="text-align: center;"><h2>Assistance</h2></div>
+          <p class="para">That is why we provide a no of ways in which we can help you to get to know us. From subscription of first newspaper to modifying your weekly plan. We are here for help and just a step away.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+let us help you
+  <div class="container">
+    <div class="site_head col-md-12">
+      <div class="site_head_child">
+        <div>
+          <h4>Let Us Help You</h4>
+          <p style="color:#0f1626;">Do let us know how we can help you. Please feel free to email us with your issue as the subject line or give us a call at anytime, any day. ( the details are in the contact section )</p>
+          <form action="{% url 'req_contact' %} " method="POST" onSubmit="return validateForm();" name="req-contact-form">{%csrf_token%}
+            <input  id="contact-no" type="text" name="contact" placeholder="Enter your contact no." required>
+            <button type="submit" href="{% url 'req_contact' %} " class="btn btn-lg btn-success btn-custom" name="request-contact"    id="requect_contact"> request contact</button>
+          </form> 
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+intro video
+<div class="container">
+  <div style="margin-top: 2em;">
+    <div class="col-md-12 col-sm-12 gap">
+      <div style="background-color: rgba(255, 255, 255, 0.62); border-radius:5px;padding:5px">
+        <div class="col-md-12">
+          <div style="text-align: center;"><h2>Introductory Video</h2></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container" >
+  <div class=" row container marketing gap" style="margin-left:0px;">
+    Three columns of text below the carousel
+      
+        <div class="col-lg-4 mid" style="background-color: rgba(255, 255, 255, 0.46);">
+         
+          <h4>Cashback & offers</h4>
+          <p class="para">Exciting offers to gain double the value you pay and much more with stipulated discount on every newspaper.<br>
+            <br><br><br></p>
+          <p><a class="gap btn btn-lg btn-success btn-custom" href="#" role="button">View details &raquo;</a></p>
+        </div>/.col-lg-4
+        <div class="col-lg-4 mid" style="background-color: rgba(255, 255, 255, 0.52);">
+          <h4>Online payment</h4>
+          <p class="para">No more waiting for your local vendor to pay the bill. Just pay the bill wherever and whenever you want with variety of online payment options.<br><br><br></p>
+          <p><a class="gap btn btn-lg btn-success btn-custom" href="#" role="button">View details &raquo;</a></p>
+        </div>/.col-lg-4
+        <div class="col-lg-4 mid" style="background-color: rgba(255, 255, 255, 0.46);">
+          <h4>Work with us</h4>
+          <p class="para">We are providing a holistic solution to newspaper industry, which till date is either not available or scattered in bits and pieces. If you want to work with us feel free to contact us.<br><br></p>
+          <p><a class="gap btn btn-lg btn-success btn-custom" href="{% url 'workwithus' %}" role="button">View details &raquo;</a></p>
+        </div>
+      /.row
+  </div>
+</div>
+ -->
+
+
+<!-- BODY ENDS-->
+<div class="acc_page">
+  <div class="account_page_content" >
+    <div class="profile">
+      <div class="p_pic">
+        1
+      </div>
+      <div class="p_details">
+        <p>name</p>
+        <p>customer id</p>
+        <p>mob no</p>
+      </div>
+      
+      
+    </div>
+    <div class="newspapers">
+      newspaper
+    </div>
+    <div class="offers">
+      offers
+    </div>
+    <div class="bills">
+      bills
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- FOOTER -->
+<div class="footer" style="background-color: #1f1f1f;box-shadow: 0 0 1px #1f1f1f;position:relative;">
+  <div class="container" style="">
+    <div class="row">
+      <div class="col-md-8" style="height: 225px;">
+        <div class="heading-footer1" style="">
+          <h4 style="color: #fff;font-weight: 200;">
+            Papers
+          </h4>
+        </div>
+        <div>
+          <p style="color: #fafafa;font-weight: 100;font-size: 13px;">The Time Of India | Hindustan Times | Navbharat Times | Business Standard | Employment News | The Hindu | Devbhoomi<br>
+            <a href="{% url 'all_newspapers' %}"><span class="footer_link"><u>and more ...</u></span></a>
+          </p>
+
+        </div>
+      </div>
+      <div class="col-md-4" style="height: 225px">
+        <div class="heading-footer1" style="">
+          <h4 style="color: #fff;font-weight: 200;">
+            Be a part of the Tradition
+          </h4>
+        </div>
+        <div> 
+          <p style="color: #fafafa;font-weight: 100;font-size: 13px;">Don't miss any opportunity to access offers and updates from us.</p>
+        </div>
+        <div>
+          <div>{% include 'newsletter_form.html' %}</div>
+          
+        </div>
+      </div>
+      
+    </div>
+    <div class="row">
+      <div class="col-md-8" style="height: 225px;">
+        <div class="heading-footer1" style="">
+          <h4 style="color: #fff;font-weight: 200;">
+            Contact Us
+          </h4>
+        </div>
+        <div style="padding:6px;margin-top: 30px;">
+          <i class="fa fa-envelope fa-2x" aria-hidden="true" style="color:#fafafa;font-size: 20px;">&nbsp&nbsp&nbspinfo@sightnext.com</i><br>  
+          <i class="fa fa-phone fa-2x" aria-hidden="true" style="color:#fafafa;font-size: 20px;">&nbsp&nbsp&nbsp+91-xxxxxxxxxx</i>  
+          </p>
+
+        </div>
+      </div>
+      <div class="col-md-4" style="height: 225px">
+        <div class="heading-footer1" style="">
+          <h4 style="color: #fff;font-weight: 200;">
+            Paymenyt options
+          </h4>
+        </div>
+        <div> 
+          <p style="color: #fafafa;font-weight: 100;font-size: 13px;"></p>
+        </div>
+        <div>
+          <div></div>
+          
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</div>
+<div class="footer" style="background-color: #1f1f1f;box-shadow: 0 0 1px #fafafa;position:relative;">
+  <div class="container" style="padding:5px 0">
+    <div class="row" style="margin: 0px 0px;">
+      <div class="col-md-8 col-sm-8">
+        <div class="row second-footer" style="font-size: 15px;color: #fff;">
+          
+            <ul>
+              <li><a href="{% url 'privacy' %}" style="font-size: 11px;">Privacy Policy</a></li>
+              <li><a href="{% url 'contact'%}" style="font-size: 11px;">Contact Us</a></li>
+              <li><a href="{% url 'all_newspapers' %}" style="font-size: 11px;">Newspapers</a></li>
+              <li><a href="{% url 'all_newspapers' %}" style="font-size: 11px;">services</a></li>
+              <li><a href="{% url 'all_newspapers' %}" style="font-size: 11px;" >terms and conditions</a></li>
+            </ul>
+          
+        </div>
+        <div class="row " style="font-size: 15px;color: #fff;">
+          <div style=" padding: 4px 0px;">
+            <p style="margin-top: 0px;">&copy2017 | Sightnext Informatics Pvt. Ltd.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-4" style="text-align: right;display:flex;">
+        <div style="margin:auto 0px auto auto ">
+          <ul style="color:#fafafa">
+            <li><a href="https://www.facebook.com/sightnext/" target='-blank'><i class="fa fa-facebook-square fa-2x" aria-hidden="true"></i></a></li>
+            <li><a href="https://in.linkedin.com/company/sightnext-pvt.ltd." target="_blank"><i class="fa fa-linkedin-square fa-2x" aria-hidden="true"></i></a></li>
+            <li><a href="https://twitter.com/sightnext" target="_blank"><i class="fa fa-twitter-square fa-2x" aria-hidden="true"></i></a></li>
+            <li><a href="https://instagram.com/sightnext" target="_blank"><i class="fa fa-instagram fa-2x" aria-hidden="true"></i></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>  
+  </div>
+</div>
+
+<!-- FOOTER ENDS -->
+
+
+
+
+
+
+
+<!-- JAVASCRIPT -->
+  {% include "js.html" %}
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+<!-- JAVASCRIPT ENDS -->
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+
+<!doctype html>
+
+
+
+<html lang="en">
+  <head>
+     Required meta tags
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    Bootstrap CSS
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{% static  'css/custom.css' %}" >
+    <link rel="stylesheet" href="{% static  'css/custom_dummy.css' %}" >
+    <link rel="stylesheet" href="{% static  'css/new_design.css' %}" >
+
+    <link href='https://fonts.googleapis.com/css?family=Rambla' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Righteous' rel='stylesheet'>
+    <title>Hello, world!</title>
+  </head>
+<body style="font-family: Rambla;">
+  navbar code
+    <div class="container">
+      <nav class="navbar navbar-expand-lg navbar-light ">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div style="position:absolute;">
+            <a class="navbar-brand" href="#"><img  src='{% static "logo/logo white.jpg" %}' style="width:50px;height:50px;border-radius:5px"></a>
+          </div>
+          <div class="navbar-nav" style="z-index: 2;margin:auto">
+            <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link" href="#">Account</a>
+          </div>
+          
+        </div>
+      </nav>
+    </div>
+    navbar code ends
+    <div class="container site_name" style="text-align: center;">
+      <h1 style="font-family: Righteous;">Sightnext</h1>
+    </div>
+    <div>
+      &nbsp;
+    </div>
+
+  BANNER
+    <div class="site_head col-md-12 col-sm-12"  style="padding-right:0px;padding-left: 0px;">
+    <div class="site_head_child" style="text-align:center;display:flex">
+      
+        <div style="width:50%;margin:auto">
+          <div class="" style="text-align: center;">
+            
+              
+              <h2 style="color:#fafafa;text-shadow:rgba(0, 0, 0, 0.4) 0px 4px 5px;letter-spacing: .02em;">DELIVERING NEWSPAPERS</h2>
+              <div>
+      &nbsp;
+    </div>
+              <h1 style="color:#fafafa;letter-spacing: .08em;"> DIRECT TO YOUR DOOR </h1>
+              <p class=" " style="font-size:0px;">&nbsp;</p>
+              <h4 style="color:#fafafa;">Find out if we deliver in your area!</h4>
+              <div class="search" style="margin:auto" >
+              <br>  
+              
+                
+                <form action="{% url 'check' %}" method="POST" style="margin:auto">{%csrf_token%}
+                    
+                      <input type="text" class="searchTerm" placeholder="Enter pincode" name="pin">
+                        <button type="submit" class="searchButton">
+                        <i class="fa fa-search"></i>
+                        </button>
+                    
+                  <br><br>
+                </form>
+                
+              
+            </div>
+          </div>
+        </div>    
+        
+    </div>
+  </div>
+
+  BANNER ENDS
+    
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+  </body>
+</html>  -->

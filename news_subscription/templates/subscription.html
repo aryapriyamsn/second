@@ -1,0 +1,119 @@
+{% extends "base.html"%}
+{% load staticfiles %}
+{% load crispy_forms_tags %}
+{% block account %}
+
+
+
+
+<div class="acc_page">
+  <div class="account_page_content" >
+	<!-- profile block -->
+
+	<div class="profile">
+	  <div class="p_pic" >
+				  
+			  {%if pic%}
+			  <img class="img-fluid" src="/media/{{ pic }}" style="border-radius: 50%;float:right;overflow:visible">
+			  {%else%}
+			  <img class="img-fluid" src="/media/blank.png" style="border-radius: 50%;float:right">
+			  {%endif%}
+			
+		  
+	  </div>
+	  <div class="p_details">
+		<p>{% if name %}
+			  {{name}}
+			  {% else %}
+			  {{request.user}}
+			  {% endif %}</p>
+		<p>customer id</p>
+		<p>mob no</p>
+		<div style="text-align: right;background-color:#ccc;">
+			<button id="editinfoBtn" href="" class="btn-acc"> edit </button>
+			
+				</div>
+				<div id="editinfoModal" class="modal_editinfo">	
+					<div class="modal-content">						    
+						<div class="modal-body">
+							<span class="close_editinfo">&times;</span>
+							<form method='POST' action="{% url 'edit_profile' request.user.username %}">{%csrf_token%}
+								{{form_editinfo|crispy}}
+								<input class="btn btn-primary " type="submit" value="submit" name="submit" style="width:100%">
+							</form>
+						</div>
+					</div>
+				</div>
+	  </div>
+	  
+	</div>
+	<!-- profile block ends -->
+
+	<!-- account content block -->
+	<div class="newspapers">
+			<div style="background-color:#212529;border-radius:5px 5px 0px 0px;padding: 8px; color:#fff;font-weight:100; ">{% if user is not None %}
+			Your Subscription</div>
+
+			<div id="newspaper-section"style="">
+				<div class="title">Title</div>
+				<div class="start-date">Started from</div>
+				<div class="bill">Bill</div>
+				{%if papers%}
+						{% for paper in papers%}
+				<div class="space">&nbsp</div>
+				<div class="paper-title">{{ paper.title }}</div>
+				<div class="paper-start-date">{{start_date}}</div>
+				<div class="paper-bill"><span style="background:#212529;color:#fff">&nbsp&nbsp &#8377 {% widthratio days 1 paper.price%}&nbsp&nbsp</span></div>
+				<div class="address">{{address}}</div>
+				
+				{%endfor%}
+				<div class="paper-title">Total amount</div>
+				<div class="paper-bill"><span style="background:#212529;color:#fff">&nbsp&nbsp &#8377 {{bill}}&nbsp&nbsp</span></div>
+				<!-- modal for subscription -->
+				<div class="edit"><button id= "myBtn" href="" class="btn-acc" > + / -</button></div>
+						{% endif %}
+						<!-- <button id="myBtn">Open Modal</button> -->
+
+						<!-- The Modal -->
+					<div id="myModal" class="modal_editsub">
+						  <!-- Modal content -->
+						<div class="modal-content">						    
+							<div class="modal-body">
+							<span class="close_editsub">&times;</span>
+								<form method='POST' action="{% url 'editsubscription' %}">{%csrf_token%}
+									{{form|crispy}}
+									<input class="btn btn-primary " type="submit" value="submit" name="submit" style="width:100%">
+								</form>
+							</div>
+						</div>
+					</div>
+					<!-- modal for subscription ends -->
+			</div>
+			
+			{% else %}
+				<p>You have not subscribed for any newspapers till now..</p>
+				<a class="btn btn-lg btn-success" href="{% url 'subscribe' %}" role="button">Get Started</a>
+			{%endif%}
+  
+  
+			
+	
+	</div>
+  
+	<!-- account content block ends-->
+
+	<div class="offers ">
+	  	<div  style="background-color:#212529;border-radius:5px 5px 0px 0px;padding: 8px; color:#fff ">
+			Offers</div>
+		<div class="scroll" >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ante elit, porttitor placerat sagittis quis, aliquam a lectus. Aenean bibendum volutpat orci, ac consequat risus consectetur quis. Nulla id tellus purus, a pretium quam. Morbi a lorem lorem, vitae fringilla neque. Suspendisse lacinia interdum tellus ut rhoncus. Ut eu dui lorem. Vestibulum a nisi orci. Proin vulputate bibendum dolor, eget gravida ipsum dictum sed. Aliquam ut libero risus, at sollicitudin ante. Nunc arcu magna, tincidunt a fringilla vel, tincidunt et tortor. Nunc eu commodo lacus. Phasellus at lacus vitae nibh vestibulum porta.
+
+        Proin eget justo id metus varius tristique non blandit augue. Vivamus varius nisl in mi consequat fermentum. Curabitur mollis pellentesque elit id gravida. Vivamus leo metus, posuere non bibendum vel, ultricies id risus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec auctor condimentum eros, malesuada convallis arcu fermentum at. Integer viverra luctus velit at luctus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Fusce et enim metus. Maecenas a enim ligula. Pellentesque sed odio nisi. Praesent ac nisi dolor, ut congue velit. Maecenas laoreet, turpis nec posuere scelerisque, velit ligula porta purus, ut tincidunt dolor mauris ut ligula. Nam quis libero rhoncus dui posuere interdum ut at magna. Morbi fermentum laoreet risus, eget ornare velit consequat ut. Suspendisse potenti.</div>
+	</div>
+	<div class="bills">
+	  <div style="background-color:#212529;border-radius:5px 5px 0px 0px;padding: 8px; color:#fff ">
+			Bill</div>
+	</div>
+  </div>
+</div>
+
+{% endblock account %}

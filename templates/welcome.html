@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% include staticfiles %}
+{% block content %}
+	<div class="container">
+	<div class="site_head col-md-12 sol-sm-12 gap"  >
+		<div class="site_head_child" >
+			
+				<h1 style="font-weight: bold; font-size: 45px;color:#f7f5e6;">Hey {{request.user}}!! Welcome to Sightnext.</h1>
+				<span class="sub_head">No more waking up early to talk to your vendor. You can manage your subscription anywhere you want. Hope you like us.</span>
+				
+					<p style="margin-top: 0px"><a class="btn btn-lg btn-success" href="{% url 'subscribe'%}" role="button">Subscribe now</a>	
+				
+					<a class="btn btn-lg btn-success" href="{% url 'edit_profile' request.user.username%}">Create profile</a></p>
+				
+				
+		</div>
+	</div>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,135 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block content %}
+<div class="" style="">
+	<div style="width:100%;background:">
+		
+		<div class= "row" style="padding:">
+			<div class="col-md-6 col-sm-12 col-12" style="height:126px;width:100%;">
+				<div>
+					<h1 style="">My Account</h1>	
+				</div>
+				<div>
+					Welcome to your user dashboard
+				</div>
+			</div>
+			<div class="col-md-4 offset-md-2 col-sm-12 col-12" style="height:126px;width:100%; background-color:#538ab9;border-radius:10px;color:#fafafa">
+				<div class="row acc-profile-data">
+					<div class="col-md-8 col-sm-8 col-8">
+						<div style="margin-left:-20px">
+							{% if name %}
+							{{name}}
+							{% else %}
+							{{request.user}}
+							{% endif %}
+							
+							<div style="margin:2px 0px">
+								<h6 style="margin-top:0px"><i>(customer id)</i>
+							</div>
+							<div style="margin-top:-6px;">
+								<a href="{% url 'logout' %}" style="text-decoration:none;">logout</a></h6></div>
+							</div>
+					</div>
+					
+					<div class="col-md-4 col-sm-4 col-4">						
+							{%if pic%}
+							<img src="/media/{{ pic }}" style="width: 80px;height: 80px;border-radius: 50%;float:right;overflow:visible">
+							{%else%}
+							<img src="/media/blank.png" style="width: 80px;height: 80px;border-radius: 50%;float:right">
+							{%endif%}
+						
+					</div>
+
+				</div>
+			</div>
+		
+
+	</div>
+</div>
+<div class="" style="margin-top:40px" >
+	<nav class="acc">
+		<div class="handle" style="font-size::;px">  <i class="fa fa-bars " aria-hidden="true"></i> Menu</div>
+		<ul class="hide">
+			<a href="{% url 'subscription' %}">
+				<li class="{% if abar == 'subscription' %}active{% endif %}">My Newspapers</li></a>
+			</a>
+			<a href="{% url 'editsubscription' %}">
+				<li class="{% if abar == 'editsubscription' %}active{% endif %}">Subscription</li></a>
+			</a>
+			<a href="{% url 'editsubscription' %}"><li class="{% if abar == 'bill' %}active{% endif %}" >Customize</li></a>
+			<a href="{% url 'profile' request.user.username %}"><li class="{% if abar == 'profile' %}active{% endif %}" >My Profile</li></a>
+			
+			
+			<a href="{% url 'myvendor' request.user.username %}">
+				<li class="{% if abar == 'vendor' %}active{% endif %}" >My Vendor</li>
+			</a>
+			<a href="">
+				<li>Notifications</li>
+			</a>
+			
+		</ul>
+		
+	</nav>
+	
+
+	<div class="row mar">	
+		<div class="col-md-12 data">
+			<div style="margin:70px 20px;">
+				{%block data%}
+		
+		{% endblock data %}
+			</div>
+		
+		</div>
+	</div>
+
+</div>
+</div>
+<script type="text/javascript">
+$('.handle').on('click', function(){
+  $('nav ul').toggleClass('showing');
+});
+</script>	
+
+{% endblock content %}
+
+
+
+
+
+
+
+
+<div class="">
+		
+			<div class="" style="background-color:red">
+			<div >
+			<nav  class="acc_nav">
+				<ul>
+					<li class="{% if abar == 'profile' %}active{% endif %}"><a  href="{% url 'profile' request.user.username %}">my profile</a></li>
+					<li class="{% if abar == 'subscription' %}active{% endif %}"><a href="{% url 'subscription' %}">subscription</a></li>
+					{% if user != None %}
+					
+					<li class="{% if abar == 'bill' %}active{% endif %}" ><a href="{% url 'allbills' %}">Bill</a></li>
+					<li class="{% if abar == 'vendor' %}active{% endif %}" ><a href="{% url 'myvendor' request.user.username %}">My Vendor</a></li>
+					{% endif %}
+					<li class="" ><a href="{% url 'logout' %}">logout</a></li>
+				</ul>
+			</nav>
+			</div>
+			</div>
+		
+	</div>
+
+
+
+
+
+
+<h1> Your bills are as follows</h1>
+		<div class="container">
+			{% for paper in queryset %}
+				<h2>{{paper.title}} : {% widthratio days 1 paper.price%}</h2>
+			{%endfor%}
+			<h1>total bill: {{bill}}</h1>
+		</div>

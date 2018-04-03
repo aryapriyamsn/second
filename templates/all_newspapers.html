@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block content%}
+<div class="container">
+	<div class=" row blur_back">
+	{% for paper in set %}
+	<div class="col-md-4">
+		{{paper.title}}
+	</div>
+	{%endfor%}
+	</div>
+</div>
+{% endblock content %}

@@ -1,0 +1,54 @@
+{% extends "account.html" %}
+{% load staticfiles %}
+{%block data %}
+<div class="row" style="margin:30px">
+		{% if length is not None %}
+		<div class ="col-md-2">Newspapers :</div>
+		<div class="col-md-10">
+			{% for paper in querylist %}
+				<a href="{% url 'paperbill' paper %}">{{paper}}</a> &nbsp 
+			{%endfor%}
+		</div>
+		{%else%}
+			<h1>Please subscribe for a newspaper first</h1>
+		{%endif%}
+</div>
+
+<div class="row" style="margin:30px">
+		{% if length is not None %}
+		<div class ="col-md-2">Address :</div>
+		<div class="col-md-10">
+			{{address}}
+		</div>
+		{%else%}
+			<h1>We don't have your address. Please update.</h1>
+		{%endif%}
+</div>
+
+<div class="row" style="margin:30px">
+		{% if length is not None %}
+		<div class ="col-md-2">Contact No. :</div>
+		<div class="col-md-10">
+			{{mob_no}}
+		</div>
+		{%else%}
+			<h1>We don't have your contact no.</h1>
+		{%endif%}
+</div>
+
+<div class="row" style="margin:30px">
+		{% if length is not None %}
+		<div class ="col-md-2">User Since:</div>
+		<div class="col-md-10">
+			{{duration}}
+		</div>
+		{%else%}
+			
+		{%endif%}
+</div>
+<div class="row" style="margin:30px">
+	<div class="col-md-2">
+	<a href="{% url 'editsubscription' %}"><button class="btn btn-default" style="width:100px"> Edit </button></a>
+	</div>
+</div>
+{% endblock data%}

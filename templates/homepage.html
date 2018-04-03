@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="icon" href='{% static "logo/logo white.jpg" %}'></li>
+	<title>Sightnext</title>
+	{% include "css2.html" %}	
+</head>
+<body class="">
+	{% include "js.html" %}
+
+
+
+			<div style="">
+				{% include 'navbar.html' %}
+			</div>
+			{% include 'sightnext_name.html' %}
+				{% include 'banner.html' %}
+				{% block homecontent %}
+				{% endblock homecontent %}
+			<div class="container">
+				<div style="margin: 0px;">
+					{% block content %}
+					{% endblock content %}
+				</div>
+			</div>
+			
+			<div style="margin-top: 20px;">
+				{% include "footer.html" %}
+			</div>	
+
+
+</body>
+</html>

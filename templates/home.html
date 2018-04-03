@@ -1,0 +1,153 @@
+{% extends "homepage.html" %}
+{% load staticfiles%}
+{% block homecontent %}
+
+
+
+
+
+<!-- <div class="container">
+	<div class="about-section para gap">
+		<div class="col-md-12 col-sm-12" >
+			<div style="background-color: rgba(255, 255, 255, 0.62); border-radius:5px;padding:5px">
+				<div class="col-md-12">
+					<div style="text-align: center; display:flex"><h2 style="margin:auto; padding:5px;border-top: 2px solid;border-bottom: 2px solid;"> <STRONG>SIGHTNEXT</STRONG> </h2></div>
+					<div style="text-align: center;">
+						<p style="">
+							We are here for a change.<br>We provide an easy and efficient way to manage your newspaper subscription.<br> We have an inclusive list of national and regional newspapers, that you can choose from to be delivered at your doorsteps.<br> We have a flexible system that allows you to cancel or order additional newspapers for any duration.<br> And you can pay for these <br> Anytime, Anywhere - as per your convenience.
+					
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div> -->
+<!-- our daily deliveries -->
+<!-- <div class="container">
+	<div style="margin-top: 2em;">
+		<div class="col-md-12 col-sm-12 gap">
+			<div style="background-color: rgba(255, 255, 255, 0.62); border-radius:5px;padding:5px">
+				<div class="col-md-12">
+					<div style="text-align: center;"><h2>Our Daily Deliveries</h2></div>
+				</div>
+				<div>
+			</div>
+		</div>
+	</div>
+</div> -->
+<!--  -->
+<!-- account dashboard -->
+<div class="newspaper_image" style="height:500px;">
+	<div style="width:100%;height:100%;display:flex" >
+		<div class="gap" style="margin:auto;">
+			<div style=" border-radius:5px;padding:5px;">
+				<div class="col-md-12">
+					<div style="text-align: center; display:flex"><h2 style="margin:auto; padding:5px;border-top: 2px solid;border-bottom: 2px solid;"> <STRONG>DASHBOARD MANAGEMENT</STRONG> </h2></div>
+				</div>
+				<div style="text-align: center;"><p>you can manage and customize your newspaper order in your dashboard </p></div>
+				<div style="text-align: center;"><a href=""><button class="manage_button">Manage your account</button></a></div>
+			</div>
+		</div>
+	</div>
+</div>
+<!--  -->
+<!-- steps to follow -->
+<div class="container">
+	<div style="margin-top: 2em;">
+		<div class="col-md-12 col-sm-12 gap">
+			<div style="background-color: rgba(255, 255, 255, 0.62); border-radius:5px;padding:5px">
+				<div class="col-md-12">
+					<div style="text-align: center;"><h2>Steps To Follow</h2></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!--  -->
+<!-- Assistance -->
+<div class="container">
+	<div style="margin-top: 2em;">
+		<div class="col-md-12 col-sm-12 gap">
+			<div style="background-color: rgba(255, 255, 255, 0.62); border-radius:5px;padding:5px">
+				<div class="col-md-12">
+					<div style="text-align: center;"><h2>Assistance</h2></div>
+					<p class="para">That is why we provide a no of ways in which we can help you to get to know us. From subscription of first newspaper to modifying your weekly plan. We are here for help and just a step away.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!--  -->
+<!-- let us help you -->
+	<div class="container">
+		<div class="site_head col-md-12">
+			<div class="site_head_child">
+				<div>
+					<h4>Let Us Help You</h4>
+					<p style="color:#0f1626;">Do let us know how we can help you. Please feel free to email us with your issue as the subject line or give us a call at anytime, any day. ( the details are in the contact section )</p>
+					<form action="{% url 'req_contact' %} " method="POST" onSubmit="return validateForm();" name="req-contact-form">{%csrf_token%}
+						<input  id="contact-no" type="text" name="contact" placeholder="Enter your contact no." required>
+						<button type="submit" href="{% url 'req_contact' %} " class="btn btn-lg btn-success btn-custom" name="request-contact"    id="requect_contact"> request contact</button>
+					</form>	
+				</div>
+			</div>
+		</div>
+	</div>
+
+<!--  -->
+
+<!-- intro video -->
+<div class="container">
+	<div style="margin-top: 2em;">
+		<div class="col-md-12 col-sm-12 gap">
+			<div style="background-color: rgba(255, 255, 255, 0.62); border-radius:5px;padding:5px">
+				<div class="col-md-12">
+					<div style="text-align: center;"><h2>Introductory Video</h2></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!--  -->
+<div class="container" >
+	<div class=" row container marketing gap" style="margin-left:0px;">
+		<!-- Three columns of text below the carousel -->
+			
+				<div class="col-lg-4 mid" style="background-color: rgba(255, 255, 255, 0.46);">
+				 
+				  <h4>Cashback & offers</h4>
+				  <p class="para">Exciting offers to gain double the value you pay and much more with stipulated discount on every newspaper.<br>
+				  	<br><br><br></p>
+				  <p><a class="gap btn btn-lg btn-success btn-custom" href="#" role="button">View details &raquo;</a></p>
+				</div><!-- /.col-lg-4 -->
+				<div class="col-lg-4 mid" style="background-color: rgba(255, 255, 255, 0.52);">
+				  <h4>Online payment</h4>
+				  <p class="para">No more waiting for your local vendor to pay the bill. Just pay the bill wherever and whenever you want with variety of online payment options.<br><br><br></p>
+				  <p><a class="gap btn btn-lg btn-success btn-custom" href="#" role="button">View details &raquo;</a></p>
+				</div><!-- /.col-lg-4 -->
+				<div class="col-lg-4 mid" style="background-color: rgba(255, 255, 255, 0.46);">
+				  <h4>Work with us</h4>
+				  <p class="para">We are providing a holistic solution to newspaper industry, which till date is either not available or scattered in bits and pieces. If you want to work with us feel free to contact us.<br><br></p>
+				  <p><a class="gap btn btn-lg btn-success btn-custom" href="{% url 'workwithus' %}" role="button">View details &raquo;</a></p>
+				</div>
+			<!-- /.row -->
+	</div>
+</div>
+
+<script>
+function validateForm() {
+    var x = document.forms["req-contact-form"]["contact"].value;
+    y=x.toString().length;
+    if (y != 10) {
+        alert("please enter a valid no.");
+        return false;
+    }
+    else{
+      alert("Thank you for request. We will get back to you as soon as possible.")
+      return true;
+    }
+}
+</script>
+
+{% endblock homecontent %}

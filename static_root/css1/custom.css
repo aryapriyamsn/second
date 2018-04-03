@@ -1,0 +1,15 @@
+.padr{
+	padding-right: 0px
+}
+.nav-stacked>li {
+	border: 2px solid #ddd;
+	border-radius: 5px;
+}
+.left-nav {
+    padding-left: 0px;
+    margin-left: -17px;
+    margin-right: -17px;
+    margin-bottom: 0px;
+    }
+
+

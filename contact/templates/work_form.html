@@ -1,0 +1,10 @@
+<form action="{% url 'work' %}" method="POST">
+	{% csrf_token %}
+	<label  class="sr-only">Name</label>
+	<input type="text" id="name" class="form-control" placeholder="Name" name="name" required autofocus>
+	<label  class="sr-only">email</label>
+	<input type="email" id="email" class="form-control" placeholder="E-mail" name="email" required autofocus>
+	<label  class="sr-only">message</label>
+	<textarea id="text" class="form-control" placeholder="Message" name="message" style="height:200px" required autofocus></textarea>	
+	<input type='submit' href="{% url 'work' %}" class=" sub btn btn-lg btn-success btn-custom" role="button" value="Submit" style="width:100%">
+</form>

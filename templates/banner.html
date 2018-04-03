@@ -1,0 +1,50 @@
+
+{% load staticfiles %}
+
+
+	<div class="bghome">
+  <div class="container" style="display:flex; width:100%">
+      <div style="margin:auto; text-align:center;padding-top:40px;" >
+        <span class="banner_head1" style="">DELIVERING NEWSPAPER</span>
+        <p></p>
+        <span class="banner_head2" style="">DIRECT TO YOUR DOOR</span>
+        <h4 style="font-family: 'Rambla';margin-top: 2em;color:#ffffff;">Find out if we deliver in your area</h4>
+        
+        <!-- <div>
+          <form action="{% url 'check' %}" method="POST" style="margin:auto;max-width:100px">{%csrf_token%}
+                <input type="text" class="searchTerm" placeholder="Enter pincode" name="pin">
+                <button type="submit" class="searchButton">
+                  <i class="fa fa-search"></i>
+                </button>
+        
+                <br><br>
+              </form>  
+        </div> -->
+        <form class="example" action="{% url 'check' %}" method="POST" style="margin:auto;max-width:300px">{%csrf_token%}
+          <input type="text" placeholder="Pincode" name="pin" style="">
+          <button type="submit"><i class="fa fa-search"></i></button>
+        </form>
+        <h5 style="font-family: 'Rambla';margin-top: 2em;color:#fafafa;">Already have an account?</h5>
+        <a href=""><button class="login_button" type="submit" style="cursor:pointer;"><span class="button_text" style="">Login</span>  </button></a>
+        <br>
+        <br>
+      </div>
+      <br>
+      
+  </div>
+</div>
+<div class="row" style="background-color: #9da5a8;color:#fafafa;margin-left:0px;margin-right: 0px;">
+    <div class="col-md-4 steps" >
+      <span style="font-size:30px;">01</span> <span style="margin-bottom:50%;">Select newspaper</span>
+    </div>
+    <div class="col-md-4 steps" >
+      <span style="font-size:30px;">02</span> Provide delivery details
+    </div>
+    <div class="col-md-4 steps" >
+      <span style="font-size:30px;">03</span> Get newspaper on your door
+    </div>
+</div>
+
+
+
+					    

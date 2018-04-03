@@ -1,0 +1,53 @@
+{% extends "base.html"%}
+{% block content %}
+<div class="container-fluid ">
+<div style="height:10em;background-color: #1f272a;"></div><br>
+</div>
+<div class="container-fluid ">
+	<div class="panel panel-default">
+		  <div class="panel-heading" style="text-align: center;">
+		    Account Information
+		  </div>
+	</div>
+</div>
+<div class="container-fluid ">
+	
+  	<div class=" col-md-3" style="border: 2px solid #ddd; border-radius: 5px">
+	  	<ul class="nav nav-stacked left-nav">
+		  	<li role="presentation" class="active"><a href="{% url 'profile' request.user.username%}"><span class="glyphicons glyphicons-menu-hamburger"></span>Profile</a></li>
+		  	<li role="presentation"><a href="{% url 'edit_profile' request.user.username%}">edit profile</a></li>
+		  	<li role="presentation"><a href="{% url 'subscription' %} ">subscription</a></li>
+		  	<li role="presentation"><a href="{% url 'allbills' %}">Bill</a></li>
+		  	<li role="presentation"><a href="#">Bill Payment</a></li>
+		  	<li role="presentation"><a href="#">Offers</a></li>
+		  	<li role="presentation"><a href="#">Refer to Friend</a></li>
+		  	<li role="presentation"><a href="#">Porta ac consectetur ac</a></li>
+		  	<li role="presentation"><a href="#">Logout</a></li>
+		</ul>
+  	</div>
+
+	<div class="col-md-9" style="background-color: white; height:416px; border: 2px solid #ddd; border-radius: 5px" id="blockframe">
+		
+	</div>
+</div><br>
+
+
+<div class="container-fluid ">
+	<div style="height:10em;background-color: #1f272a;">a</div>
+</div>
+
+
+{% endblock content %}
+
+	<div class="list-group col-md-3 padr" style="border: 1px solid #ddd">
+  <a href="#" class="list-group-item">Profile</a>
+  <a href="#" class="list-group-item">Modify Subscription</a>
+  <a href="#" class="list-group-item">Subscribed Newspaper</a>
+  <a href="#" class="list-group-item">Bill</a>
+  <a href="#" class="list-group-item">Bill Payment</a>
+  <a href="#" class="list-group-item">Offers</a>
+  <a href="#" class="list-group-item">Refer to Friend</a>
+  <a href="#" class="list-group-item">Porta ac consectetur ac</a>
+  <a href="#" class="list-group-item">Logout</a>
+</div>
+</div>
