@@ -15,13 +15,13 @@ class Users(models.Model):
 	u_name = models.OneToOneField(User,
 		verbose_name = "User Name"
 		)
-	user_id=models.CharField(max_length=20,unique=True,null = False,blank = False,)
+	
 	mob_no = models.PositiveIntegerField(
 		null = False,
 		blank = False,
 		unique=True,
 		)
-	subs_paper = models.ManyToManyField(Newspapers, verbose_name= "subscribed for",related_name="papers_sub",)
+	
 
 	email_id = models.EmailField(
 		null = False,
@@ -32,19 +32,8 @@ class Users(models.Model):
 	joining_date = models.DateTimeField(
 		default = timezone.now)
 
-	address = models.TextField(
-		null = True,
-		blank = True
-		)
+	total_bill=models.FloatField(default=0,)
 	
-	pin_code=models.PositiveIntegerField( validators=[MaxValueValidator(999999),MinValueValidator(100001)],default=100001)
-
-	password = models.CharField(
-		max_length=20,
-		null = False,
-		blank = False
-		)
-
 	
 	def __str__(self):
 		return str(self.u_name)

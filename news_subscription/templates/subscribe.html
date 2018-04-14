@@ -4,11 +4,11 @@
 {{title}}
 {% if message %}
 {{message}}
-<a class="btn btn-lg btn-success" href="{% url 'subscribe' %}" role="button">Get Started</a>
+<a class="btn btn-lg btn-success" href="{% url 'subscribe_paper' %}" role="button">Get Started</a>
 {%else%}
 <div class = ="container">
 	<div class = "col-md-4">
-		<form method='POST'>{%csrf_token%}
+		<form method='POST' action="{% url 'subscribe_paper' %}">{%csrf_token%}
 			{{form|crispy}}
 			<input class="btn btn-primary " type="submit" value="submit" name="submit" style="width:100%">
 		</form>

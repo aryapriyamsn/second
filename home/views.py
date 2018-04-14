@@ -15,7 +15,7 @@ def Home(request):
 		}
 		return render(request,"home.html",context)
 	else:
-		user=str(request.user)
+		user=request.user
 		context = {
 			'user' : user,
 			'nbar' : 'home',
@@ -58,6 +58,11 @@ def req_contact(request):
 			fail_silently=False,
 		)
 	return HttpResponseRedirect("/")
+def digest(request):
+	context={
+		'nbar':"digest",
+	}
+	return render(request,'digest.html',context)
 
 def home(request):
 	

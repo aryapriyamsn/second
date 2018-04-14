@@ -1,28 +1,33 @@
-{% load staticfiles	 %}
+{% load staticfiles  %}
 
-
-
-
-<div >
+<div style="background: darkslategrey;box-shadow: 0 1px 3px 0px darkslategrey;">
   <div class="container">
     
   
   <nav class="navbar navbar-expand-lg navbar-light">
-      <a class="navbar-brand" href="{% url 'home' %}"><img  src='{% static "logo/logo white.jpg" %}' style="width:50px;height:50px;border-radius:5px"></a>
+      <a class="navbar-brand" href="{% url 'home' %}"><img  src='{% static "logo/logo black.jpg" %}' style="width:50px;height:50px;border-radius:5px"></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-          <a class="nav-item nav-link {% if nbar == 'home' %}active{% endif %}" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
-          {% if user == "AnonymousUser" %}
-          <a class="nav-item nav-link {% if nbar == 'signin' %}active{% endif %}" href="{% url 'signup' %}">SignIn/SignUp</a>
+        <ul id="nav2" class="navbar-nav ">
+
+          <li><a class="nav-item nav-link {% if nbar == 'home' %}active{% endif %}" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a></li>
+          <li><a class="nav-item nav-link " href="#">Services</a></li>
+          <li><a class="nav-item nav-link " href="{% url 'dailydigest' %}">Daily digest</a></li>
+        {% if user.username == "" %}
+          <li><a class="nav-item nav-link {% if nbar == 'signin' %}active{% endif %}" href="{% url 'login' %}">SignIn/SignUp</a></li>
         {% else %}
-          <a class="nav-item nav-link {% if nbar == 'account' %}active{% endif %}" href="{% url 'subscription' %}">Account</a>
-        {%endif%}
-          <a class="nav-item nav-link " href="#">Services</a>
-          <a class="nav-item nav-link " href="#">Daily digest</a>
-        </div>
+          <li class="dropdown"><a class="dropdown-toggle nav-item nav-link" data-toggle="dropdown" href="#">account <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a class="nav-item nav-link " href="{% url 'mysubscription' %}">Dashboard</a></li>
+              <li><a class="nav-item nav-link " href="{% url 'logout' %}">LogOut</a></li>
+              
+            </ul>
+          </li>
+          {%endif%}
+          
+        </ul>
       </div>
   </nav>
   </div>

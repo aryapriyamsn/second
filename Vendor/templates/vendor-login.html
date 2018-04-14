@@ -1,0 +1,87 @@
+
+{% extends "base.html" %}
+{% block content %}
+{{user}}
+<div class="container ">
+	{% if user.username %}
+					<h1>One user is alredy logged in.. Please logout first</h1>
+					<a class="btn btn-primary" href='{%url "logout"%}' role="button" >Logut</a>
+			{%else%}
+<div style="margin: 50px 0px"></div>
+<div id="accordion" role="tablist" style="margin-bottom:50px;">
+  <div class="card">
+    <div class="card-header" role="tab" id="headingOne" style="text-align:center;">
+      <h5 class="mb-0">
+        <a data-toggle="collapse" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+        	Sign In
+        </a>
+      </h5>
+    </div>
+    <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion">
+      <div class="card-body" style="display:flex;">
+        <div class="col-sm-4 col-md-6" style="text-align:center;margin:auto;">
+			
+
+				<form class="form-signin" action="{%url 'vendor_login' %}" method="POST">
+					{% csrf_token %}
+			        <label  class="sr-only">Name</label>
+			        <input type="text" id="inputUserEmail" class="form-control" placeholder="Username, email-id or mob no." name="u_name" required autofocus><br>
+			        <label for="inputPassword" class="sr-only">Password</label>
+			        <input type="password" id="inputPassword" class="form-control" placeholder="Password" name="password" required>
+			    	<br>
+					<input class="btn btn-primary" type="submit" value="Log In" style="width:100%">
+				</form>
+		
+		
+
+		</div>
+      </div>
+    </div>
+  </div>
+  <b><i>{{status}}</i></b>
+  <div class="card">
+    <div class="card-header" role="tab" id="headingTwo" style="text-align:center;">
+      <h5 class="mb-0">
+        <a class="collapsed" data-toggle="collapse" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          Register
+        </a>
+      </h5>
+    </div>
+    <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo" data-parent="#accordion">
+      <div class="card-body" style="display:flex;">
+        <div class='col-md-6' style="text-align:center;margin:auto">
+		
+			<form class="form-signin" method="POST" action="{% url 'signup' %}">
+				{% csrf_token %}
+				<label class="sr-only">Name</label>
+				<input class='form-control' type = "text"  placeholder= 'Name' name='u_name' required autofocus>
+				<br><br>
+				<label class="sr-only">Mobile No.</label>
+				<input class='form-control' type = "integer"  id='mob_no' placeholder="Mob. no" name="mobile" required autofocus>
+				<br><br>
+				<label class= "sr-only">E-mail Id</label>
+				<input class='form-control' type="email"  placeholder="email" name ='email' id="email" required autofocus>
+				<br><br>
+				<label class = "sr-only">Password</label>
+				<input class='form-control' type="password" name="password1" placeholder="Password" id="password1" required autofocus>
+				<br><br>
+				<label class="sr-only">Again Password</label>
+				<input class='form-control' type="password" name="password2" placeholder="Retype password" id="password2" required autofocus>
+				<br><br>
+				<button  class="btn btn-primary " type="submit"  style="width:100%">Sign up</button>	
+			</form>
+			
+
+	</div>
+      </div>
+    </div>
+  </div>
+  {%endif%}
+	
+
+</div>
+</div>
+
+{% endblock content %}
+
+

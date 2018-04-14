@@ -16,6 +16,7 @@
         </a>
       </h5>
     </div>
+    {{status}}
     <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion">
       <div class="card-body" style="display:flex;">
         <div class="col-sm-4 col-md-6" style="text-align:center;margin:auto">
@@ -24,7 +25,7 @@
 				<form class="form-signin" action="{%url 'login' %}" method="POST">
 					{% csrf_token %}
 			        <label  class="sr-only">Name</label>
-			        <input type="text" id="inputEmail" class="form-control" placeholder="Name" name="u_name" required autofocus><br>
+			        <input type="text" id="inputEmail" class="form-control" placeholder="Name" name="u_name" required ><br>
 			        <label for="inputPassword" class="sr-only">Password</label>
 			        <input type="password" id="inputPassword" class="form-control" placeholder="Password" name="password" required>
 			        		<br>
@@ -38,7 +39,7 @@
       </div>
     </div>
   </div>
-  <b><i>{{status}}</i></b>
+  <b><i>{{message}}</i></b>
   <div class="card">
     <div class="card-header" role="tab" id="headingTwo" style="text-align:center;">
       <h5 class="mb-0">
@@ -59,17 +60,17 @@
 				<input class='form-control' type = "text"  placeholder= 'Name' name='u_name' required autofocus>
 				<br><br>
 				<label class="sr-only">Mobile No.</label>
-				<input class='form-control' type = "integer"  id= 'mob_no' placeholder="Mob. no" name="mobile" required autofocus>
+				<input class='form-control' type = "integer"  id= 'mob_no' placeholder="Mob. no" name="mobile" required >
 				<br><br>
 				
 				<label class= "sr-only">E-mail Id</label>
-				<input class='form-control' type="email"  placeholder="email" name = 'email' id="email" required autofocus>
+				<input class='form-control' type="email"  placeholder="email" name = 'email' id="email" required >
 				<br><br>
 				<label class = "sr-only">Password</label>
-				<input class='form-control' type="password" name="password1" placeholder="Password" id="password" required autofocus>
+				<input class='form-control' type="password" name="password1" placeholder="Password" id="password1" required >
 				<br><br>
 				<label class="sr-only">Again Password</label>
-				<input class='form-control' type="password" name="password2" placeholder="Retype password" id="password" required autofocus>
+				<input class='form-control' type="password" name="password2" placeholder="Retype password" id="password2" required >
 				<br><br>
 				<button  class="btn btn-primary " type="submit" style="width:100%">Sign up</button>	
 			</form>

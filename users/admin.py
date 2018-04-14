@@ -3,7 +3,7 @@ from .models import Users, UserInfo
 
 # Register your models here.
 class UserAdmin(admin.ModelAdmin):
-	list_display = ['id','u_name','mob_no','user_id','joining_date','address','email_id']
+	list_display = ['id','u_name','mob_no','joining_date','email_id']
 
 
 class UserInfoAdmin(admin.ModelAdmin):

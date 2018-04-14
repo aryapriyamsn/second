@@ -19,8 +19,4 @@ class UsersForm(forms.ModelForm):
 			'u_name',
 			'mob_no',
 			'email_id',
-			'subs_paper',
-			'address',
-			'pin_code',
-			'password'
 		]

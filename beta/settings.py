@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'dailydigest',
+    'genres',
     'users',
     'newspapers',
     'multiselectfield',
@@ -46,6 +48,8 @@ INSTALLED_APPS = [
     'user_vendor',
     'contact',
     'pincode',
+    'unpaid',
+    
 ]
 CRISPY_TEMPLATE_PACK = "bootstrap3"
 MIDDLEWARE = [
@@ -115,7 +119,7 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER = 'priyamaryasn@gmail.com'
 EMAIL_HOST_PASSWORD = 'mayusmina'
 
-
+DJANGO_SETTINGS_MODULE ='beta.settings'
 # Internationalization
 # https://docs.djangoproject.com/en/1.10/topics/i18n/
 

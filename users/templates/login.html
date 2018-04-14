@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
-
+{{user}}
 <div class="container ">
 	{% if user.username %}
 					<h1>One user is alredy logged in.. Please logout first</h1>
@@ -24,7 +24,7 @@
 				<form class="form-signin" action="{%url 'login' %}" method="POST">
 					{% csrf_token %}
 			        <label  class="sr-only">Name</label>
-			        <input type="text" id="inputEmail" class="form-control" placeholder="Username, email-id or mob no." name="u_name" required autofocus><br>
+			        <input type="text" id="inputUserEmail" class="form-control" placeholder="Username, email-id or mob no." name="u_name" required autofocus><br>
 			        <label for="inputPassword" class="sr-only">Password</label>
 			        <input type="password" id="inputPassword" class="form-control" placeholder="Password" name="password" required>
 			    	<br>
@@ -61,14 +61,11 @@
 				<label class= "sr-only">E-mail Id</label>
 				<input class='form-control' type="email"  placeholder="email" name ='email' id="email" required autofocus>
 				<br><br>
-				<label class="sr-only">Address</label>
-				<input class='form-control' type="text" name="address" placeholder="Address"  id="address" required autofocus>
-				<br><br>
 				<label class = "sr-only">Password</label>
-				<input class='form-control' type="password" name="password1" placeholder="Password" id="password" required autofocus>
+				<input class='form-control' type="password" name="password1" placeholder="Password" id="password1" required autofocus>
 				<br><br>
 				<label class="sr-only">Again Password</label>
-				<input class='form-control' type="password" name="password2" placeholder="Retype password" id="password" required autofocus>
+				<input class='form-control' type="password" name="password2" placeholder="Retype password" id="password2" required autofocus>
 				<br><br>
 				<button  class="btn btn-primary " type="submit"  style="width:100%">Sign up</button>	
 			</form>

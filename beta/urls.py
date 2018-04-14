@@ -22,12 +22,15 @@ import users.views
 import contact.views
 import newspapers.views
 
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^users/',include('users.urls')),
     url(r'^details/',include('news_subscription.urls')),
     url(r'^vendor/',include('user_vendor.urls')),
     url(r'^pincode/',include('pincode.urls')),
+    url(r'^vendor-admin/',include('Vendor.urls')),
+    url(r'^genres/',include('dailydigest.urls',namespace='genreee')),
     url(r'^$',home.views.Home, name="home"),
     url(r'^explore/$',home.views.Home2, name="home2"),
     url(r'^contact-us$', home.views.contact, name="contact"),
