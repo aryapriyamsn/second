@@ -12,7 +12,7 @@
     font-weight: 100;
 }
 .bghome{
-    background: url("/static/images/man_reading_newspaper_copy1.jpg") no-repeat fixed  ;
+    background: url("/static/images/man_reading_newspaper_copy_final2.jpg") no-repeat fixed  ;
     background-position:;
     float:none;
     
@@ -169,25 +169,26 @@ p{
 .colr{
     background-color: #14324c ;
 }
-div ul{
+
+div >ul{
     list-style-type: none;
     padding: 0px 10px;
     text-transform: uppercase;
     margin-bottom: 8px;
     height: 100%;
 }
-div ul li{
+div >ul li{
     display: inline-block;  
     margin-right: 10px;
     height: 100%;
 }
-div ul li:last-child{
+div >ul li:last-child{
     margin-right: 0px
 }
-div ul li a{
+div >ul li a{
     color: #757474;
 }
-div ul li a:hover{
+div >ul li a:hover{
     color: #fff;
     text-decoration: none;
 }
@@ -201,6 +202,20 @@ div ul li a:hover{
     background-color: #fafafa;
     box-shadow: 1px 3px 2px grey;
     
+}
+.fa-google {
+  background: #dd4b39;
+  color: white;
+}
+.btn-twitter {
+    color: #fff;
+    background-color: #55acee;
+    border-color: rgba(0,0,0,0.2);
+}
+.btn-linkedin {
+    color: #fff;
+    background-color: #007bb6;
+    border-color: rgba(0,0,0,0.2);
 }
 .gap{
     margin-top: 20px;
@@ -387,20 +402,36 @@ div ul li a:hover{
     background-color: #fafafa;
     box-shadow: 2px 2px 2px grey;
 }
+#remove-button a{
+    border: 1px solid black;
+    color: black;
+    padding: 1px 12px;
+    font-size: 13px;
+}
+
+#remove-button a:hover{
+    border:1px solid darkslategrey;
+    color: #fafafa;
+    background: darkslategrey;
+    padding: 1px 12px;
+    font-size: 13px;
+}
 .second-footer{
     border-bottom: 1px solid rgba(255,255,255,.1);
 }
+
 .site_head{
     display: flex;
+    padding: 0px;
 }
 
 .site_head_child {
     width: 100%;
-    margin: -6px auto;
+    margin: auto;
     text-align: center;
-    background-color: #9da5a8;
+    background-color: #1f1f1f;
     padding: 50px;
-    box-shadow: 0 0 1px 0px #9da5a8;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08);
 }
 .sub{
     margin:0;
@@ -412,9 +443,13 @@ div ul li a:hover{
     color: #f7f5e6;
 }
 
-@media screen and (max-width: 360px) {
+@media screen and (max-width: 420px) {
     .site_head_child{
         padding:30px;
+    }
+    .web_steps{
+    /*background: url("/static/images/web_steps.png") no-repeat*/ ;
+        display:none;
     }
 }
 
@@ -493,3 +528,15 @@ nav ul a li.active{
     background-color:#14324c;
     color:red;
 } */
+
+
+.social-login{
+    background-color: #37474F;
+    padding:4px 10px;
+    border-radius: 3px;
+    font-weight: 100;
+    color: #e0e0e0;
+}
+
+
+

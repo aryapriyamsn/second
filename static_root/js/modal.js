@@ -27,6 +27,26 @@ span_editsub.onclick = function() {
 }*/
 
 
+var btn_editsub2 = document.getElementById("myBtn2");
+
+// Get the modal
+var modal_editsub2 = document.getElementById('myModal2');
+
+// Get the <span> element that closes the modal
+var span_editsub2 = document.getElementsByClassName("close_editsub2")[0];
+
+// When the user clicks the button, open the modal 
+btn_editsub2.onclick = function() {
+    modal_editsub2.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span_editsub2.onclick = function() {
+    modal_editsub2.style.display = "none";
+}
+
+
+
 //edit info modal
 
 // Get the button that opens the modal

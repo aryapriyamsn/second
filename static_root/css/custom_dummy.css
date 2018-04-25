@@ -1,6 +1,97 @@
 a ul li{
 	margin-right: 25px;
 }
+.offers_block{
+	display:grid;
+	max-width: 100%;
+	font-weight: 100;
+	text-align: center;
+	grid-template-columns:repeat(6,1fr);
+	grid-auto-rows:minmax(100px,auto);
+	grid-gap:0px 10px;
+}
+	.block1{
+		display: grid;
+		grid-row:1/4;
+		grid-column:1/3;
+		grid-template-columns:repeat(2,1fr);
+		grid-auto-rows:minmax(25px,auto);
+		box-shadow: 0 2px 2px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08);
+	}
+		.block1_child1{
+			grid-row:1/3;
+			grid-column:1/3;
+			background-color: #1f1f1f;
+			color: #fafafa;
+			display: flex;
+		}
+		.block1_child2{
+			grid-row:3/15;
+			grid-column:1/3;
+			display: flex;
+		}
+		.block1_child3{
+			grid-row:15/17;
+			grid-column:1/3;
+			display: flex;
+			background-color: #1f1f1f;
+			color: #fafafa;
+		}
+	.block2{
+		display: grid;
+		grid-row:1/4;
+		grid-column:3/5;
+		grid-template-columns:repeat(2,1fr);
+		grid-auto-rows:minmax(25px,auto);
+		box-shadow: 0 2px 2px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08);
+	}
+		.block2_child1{
+			grid-row:1/3;
+			grid-column:1/3;
+			background-color: #1f1f1f;
+			color: #fafafa;
+			display: flex;
+		}
+		.block2_child2{
+			grid-row:3/15;
+			grid-column:1/3;
+			display: flex;
+		}
+		.block2_child3{
+			grid-row:15/17;
+			grid-column:1/3;
+			display: flex;
+			background-color: #1f1f1f;
+			color: #fafafa;
+		}
+	.block3{
+		display: grid;
+		grid-row:1/4;
+		grid-column:5/7;
+		grid-template-columns:repeat(2,1fr);
+		grid-auto-rows:minmax(25px,auto);
+		box-shadow: 0 2px 2px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08);
+	}
+		.block3_child1{
+			grid-row:1/3;
+			grid-column:1/3;
+			background-color: #1f1f1f;
+			color: #fafafa;
+			display: flex;	
+		}
+		.block3_child2{
+			grid-row:3/15;
+			grid-column:1/3;
+			display: flex;
+
+		}
+		.block3_child3{
+			grid-row:15/17;
+			grid-column:1/3;
+			display: flex;
+			background-color: #1f1f1f;
+			color: #fafafa;
+		}
 .acc_page{
 	display:grid;
 	max-width: 100%;
@@ -22,22 +113,22 @@ a ul li{
 	
 }
 	.account_page_content > div{
-		background-color: #fff;
+		background-color: #bdbdbd;
 		padding:0px;
 		box-shadow: 0px 1px 5px 0px lightslategrey;
 		border-radius: 5px
 	}
 	.profile{
-		background-color: #fff !important;
+		
 		grid-row:1/3;
 		grid-column:1/3;
 		display: grid;
 		grid-template-columns:1fr;
 		grid-auto-rows:minmax(0px,auto);
-		grid-gap:10px;
+		grid-gap:0px;
 	}
 		.profile > div{
-			background-color: #fff;
+			background-color: #BDBDBD;
 			padding: px;
 			margin: 5px;
 		}
@@ -80,10 +171,148 @@ a ul li{
 		grid-row:5/7;
 		grid-column:1/3;
 	}
+
+
+#newspaper-section{
+	padding: 0px 20px;
+	margin-top: 10px;
+	display:grid;
+	grid-template-columns:repeat(5,1fr);
+	grid-auto-rows:minmax(auto,auto);
+}
+
+	#newspaper-section .message{
+		grid-column:1/6;
+		text-align: center;
+		background-color: ;
+	}
+	
+	.link-button{
+		grid-column:2/5;
+		
+		background-color: ;
+		text-align: center;
+	}
+	
+	.link-button #myBtn{
+		border: 1px solid black;
+		color: black;
+		padding: 1px 22px;
+		background-color: #bdbdbd;
+		border-radius: .25em;
+	}
+
+	   
+	
+	.link-button #myBtn:hover{
+		border:1px solid darkslategrey;
+	    color: #fafafa;
+	    cursor: pointer;
+	    background: darkslategrey;
+	    padding: 1px 22px;
+	}
+
+	#newspaper-section .title{
+		font-size: 25px;
+		grid-column:2/3;
+		background-color: ;
+		
+	}
+	#newspaper-section .sub_user{
+		grid-column:1/2;
+		font-size: 25px;
+		background-color: ;
+	
+	}
+	#newspaper-section .paper.address{
+		grid-column:3/4;
+		font-size: 25px;
+		background-color: ;
+	
+	}
+	#newspaper-section .start-date{
+		grid-column:4/5;
+		font-size: 25px;
+		background-color: ;
+	
+	}
+	#newspaper-section .bill{
+		grid-column:5/6;
+		font-size: 25px;
+		background-color: ;
+		
+	}
+	#newspaper-section .paper-title{
+		margin-left: 10px;
+		/*grid-column:2/3;*/
+		font-size: 25px;
+		font-weight: 200;
+		background-color: ;
+		
+	}
+	#newspaper-section .paper-sub-user{
+		/*grid-column:1/2;*/
+		font-size: 25px;
+		background-color: ;
+	
+	}
+	#newspaper-section .paper-address{
+		/*grid-column:3/4;*/
+		font-size: 25px;
+		background-color: ;
+	
+	}
+	#newspaper-section .paper-start-date{
+		/*grid-column:4/5;*/
+		font-size: 20px;
+		font-weight: 200;
+		background-color: ;
+		
+	}
+	#newspaper-section .paper-bill{
+		/*grid-column:5/6;*/
+		background-color: ;
+		font-size: 20px;
+		font-weight: 200;
+		
+	}
+	#newspaper-section .total-amount{
+		grid-column:2/4;
+		font-size: 2vw
+	}
+	#newspaper-section .total-bill{
+		grid-column:4/6;
+		font-size: 20px;
+	}
+	#newspaper-section .remove-button{
+		display: flex;
+		grid-column: 1/6;
+		border-bottom: 1px solid;
+		padding: 5px 0px;
+	}
+	#newspaper-section .address{
+		margin-left:10px;
+		grid-column:1/6;
+		background-color: ;
+		font-size: 20px;
+		
+		font-weight: 300;
+	}
+	#newspaper-section .edit{
+		grid-column:1/6;
+		text-align: right;
+		background-color: ;
+	}
+	#newspaper-section .space{
+		grid-column:1/6;
+		background-color: ;
+	}
+
+
 .banner_head1{
 	font-family: 'Rambla'; 
 	font-size:4em;
-	text-shadow: 0 3px 2px grey;
+	text-shadow: 0 9px 17px black;
 	color:#ffffff;
 }
 .banner_head2{
@@ -91,6 +320,7 @@ a ul li{
 	font-size:5em;
 	margin-top: 20px;
 	color:#ffffff;
+    text-shadow: 0px 3px 3px black;
 }
 .company_name{
 	margin:auto;font-family: Righteous;font-size: 5em;
@@ -114,7 +344,7 @@ a ul li{
 	letter-spacing: 2px;
 } */
 }
-@media (max-width:770px){
+@media (max-width:767px){
 	.banner_head1{
 		font-family: 'Rambla'; 
 		font-size:2em;
@@ -175,6 +405,67 @@ a ul li{
 	    display: table;
 	}
 
+	.account_page_content{
+		grid-gap: 20px 0px;
+	}
+	.profile{
+		grid-row:1/3;
+		grid-column:2/9;
+
+	}
+	.newspapers{
+		grid-row:3/7;
+		grid-column:1/10;
+	}
+	.offers{
+		grid-row:7/9;
+		grid-column:1/10;
+	}
+	.bills{
+		grid-row:9/11;
+		grid-column:1/10;
+	}
+	#newspaper-section{
+		margin-top: 0px;
+		padding:0px 10px;
+		
+	}
+
+	#newspaper-section .paper-title{
+		
+		font-size: 5vw;
+		
+		
+	}
+	#newspaper-section .paper-start-date{
+		
+		font-size: 3vw;
+		
+		
+	}
+	#newspaper-section .paper-bill{
+		
+		font-size: 3vw;
+		
+		
+	}
+	#newspaper-section .total-amount{
+		grid-column:2/4;
+		font-size: 4vw
+	}
+	#newspaper-section .total-bill{
+		grid-column:4/6;
+		font-size: 3vw;
+	}
+
+	#remove-button a{
+    	font-size: 10px;
+	}
+
+	#remove-button a:hover{
+	    font-size: 10px;
+	}
+
 }
 form.example input[type=text] {
     padding: 10px;
@@ -215,7 +506,28 @@ form.example::after {
 .footer_link:hover{
 	color:white;
 }
+.newspaper-heading{
+	background-color: #212529;
+    border-radius: 5px 5px 0px 0px;
+    padding:0px 10px;
+    color: #fff;
+    font-weight: 100;
+    font-size: 2vw;
+}
 
+.newspaper-other-headings{
+	background-color: #212529;
+    padding:0px 10px;
+    
+    color: #fff;
+    font-weight: 100;
+    font-size: 2vw;
+
+    border-radius: 0px;
+    width: 50%;
+    margin-top: 30px;
+    margin-left: 20px;
+}
 @media (min-width:992px){
 	.navbar-nav{
 		margin: auto;
@@ -231,84 +543,46 @@ form.example::after {
 .steps{
 	background-color:#743030;
 }
-#newspaper-section{
-	padding: 0px 20px;
-	margin-top: 10px;
-	display:grid;
-	grid-template-columns:repeat(5,1fr);
-	grid-auto-rows:minmax(auto,auto);
-}
-	
-	#newspaper-section .title{
-		font-size: 25px;
-		grid-column:1/4;
-		background-color: ;
-		
-	}
-	#newspaper-section .start-date{
-		grid-column:4/5;
-		font-size: 25px;
-		background-color: ;
-	
-	}
-	#newspaper-section .bill{
-		grid-column:5/6;
-		font-size: 25px;
-		background-color: ;
-		
-	}
-	#newspaper-section .paper-title{
-		margin-left: 10px;
-		grid-column:1/4;
-		font-size: 20px;
-		font-weight: 300;
-		background-color: ;
-		
-	}
-	#newspaper-section .paper-start-date{
-		grid-column:4/5;
-		font-size: 20px;
-		font-weight: 300;
-		background-color: ;
-		
-	}
-	#newspaper-section .paper-bill{
-		grid-column:5/6;
-		background-color: ;
-		font-size: 20px;
-		font-weight: 300;
-		
-	}
-	#newspaper-section .address{
-		margin-left:10px;
-		grid-column:1/6;
-		background-color: ;
-		font-size: 20px;
-		
-		font-weight: 300;
-	}
-	#newspaper-section .edit{
-		grid-column:1/6;
-		text-align: right;
-		background-color: ;
-	}
-	#newspaper-section .space{
-		grid-column:1/6;
-		background-color: ;
-	}
 
-#nav2 .nav-link{
+
+
+
+
+#navbarNavAltMarkup ul li .nav-link{
 	color:lightgrey;
 	font-weight: 100;
 }
-
-#nav2 .nav-link.active{
+#navbarNavAltMarkup ul li .nav-link.active{
 	color:white;
 }
 
-#nav2 .nav-link:hover{
+#navbarNavAltMarkup ul li .nav-link:hover{
 	color:white;
 }
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    display: none;
+    float: left;
+    min-width: 160px;
+    padding: 5px 0;
+    margin: 2px 0 0;
+    font-size: 14px;
+    text-align: left;
+    list-style: none;
+    background-color: darkslategrey !important;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    border: 1px solid #ccc;
+    border: 1px solid rgba(0,0,0,.15);
+    border-radius: 4px;
+    -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);
+    box-shadow: 0 6px 12px rgba(0,0,0,.175);
+}
+
 
 .scroll{
 	height: 300px;
