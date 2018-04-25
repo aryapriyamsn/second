@@ -3,6 +3,7 @@
 from __future__ import unicode_literals
 
 from django.db import migrations, models
+import django.db.models.deletion
 
 
 class Migration(migrations.Migration):
@@ -10,19 +11,20 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
+        ('genres', '0001_initial'),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Genres',
+            name='Topics',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=30)),
-                ('genre_img', models.ImageField(blank=True, null=True, upload_to='genres_image')),
+                ('headline', models.TextField()),
+                ('genre', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='genres.Genres')),
             ],
             options={
-                'verbose_name': 'Genres',
-                'verbose_name_plural': 'Genres',
+                'verbose_name': 'Topics',
+                'verbose_name_plural': 'Topics',
             },
         ),
     ]

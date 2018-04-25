@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
-{{user}}
+
 <div class="container ">
 	{% if user.username %}
 					<h1>One user is alredy logged in.. Please logout first</h1>
@@ -30,7 +30,18 @@
 			    	<br>
 					<input class="btn btn-primary" type="submit" href='{%url "login"%}' value="Log In" style="width:100%">
 				</form>
-		
+		<div class="socialaccount_ballot">
+			<br>
+  			<ul id="social" class="socialaccount_providers">
+  				<li><a href="/accounts/facebook/login/?process=login" class="social-login"> Facebook Login</a></li>
+  				<li><a href="/accounts/google/login/?process=login" class="social-login">Google Login</a></li>
+    			<li><a href="/accounts/linkedin/login/?process=login" class="social-login">Linkedin Login</a>
+  				</li>
+  			</ul>
+
+  			
+
+</div>
 		
 
 		</div>
@@ -65,7 +76,7 @@
 				<input class='form-control' type="password" name="password1" placeholder="Password" id="password1" required autofocus>
 				<br><br>
 				<label class="sr-only">Again Password</label>
-				<input class='form-control' type="password" name="password2" placeholder="Retype password" id="password2" required autofocus>
+				<input class='form-control' type="password" name="password2" placeholder="Confirm password" id="password2" required autofocus>
 				<br><br>
 				<button  class="btn btn-primary " type="submit"  style="width:100%">Sign up</button>	
 			</form>

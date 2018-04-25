@@ -1,0 +1,7 @@
+<form action="{% url 'req_contact' %} " method="POST" onSubmit="return validateForm();" name="req-contact-form" style="margin:auto;max-width:300px;margin-top: 30px;">{%csrf_token%}
+            
+            <input type="text" id="contact-no" class="" placeholder="Enter your contact no." name="contact" required style="width: 100%;margin-top: 2px;padding: 5px;height: 2em;">
+            <button class=" button_all" type="submit" style="width: 100%;padding: 0px;font-size: 11px;background: #616161;border:2px solid #616161;margin-top: 5px;"><span style="font-size: 1.4em;font-weight: 200;letter-spacing: 2px;">Contact me</span> </button>
+</form>
+
+

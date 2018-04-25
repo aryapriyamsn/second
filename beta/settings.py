@@ -37,9 +37,18 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'dailydigest',
-    'genres',
+    # djang allauth apps
+    'django.contrib.sites',
+
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.facebook',
+    'allauth.socialaccount.providers.google',
+    'allauth.socialaccount.providers.linkedin',
+    #custom apps
     'users',
+    'home',
     'newspapers',
     'multiselectfield',
     'news_subscription',
@@ -49,9 +58,13 @@ INSTALLED_APPS = [
     'contact',
     'pincode',
     'unpaid',
+    'genres',
+    'topics',
     
 ]
+SITE_ID=2
 CRISPY_TEMPLATE_PACK = "bootstrap3"
+ACCOUNT_ADAPTER = 'beta.adapter.AccountAdapter'
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -96,6 +109,16 @@ DATABASES = {
 
 # Password validation
 # https://docs.djangoproject.com/en/1.10/ref/settings/#auth-password-validators
+
+AUTHENTICATION_BACKENDS = (
+
+    # Needed to login by username in Django admin, regardless of `allauth`
+    'django.contrib.auth.backends.ModelBackend',
+
+    # `allauth` specific authentication methods, such as login by e-mail
+    'allauth.account.auth_backends.AuthenticationBackend',
+
+)
 
 AUTH_PASSWORD_VALIDATORS = [
     {

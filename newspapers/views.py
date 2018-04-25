@@ -6,7 +6,7 @@ from .forms import NewspaperForms
 # Create your views here.
 
 def paper_entry(request):
-	context= {'nbar' : 'account',}
+	context= {'nbar' : 'account','user':request.user.username,}
 	if request.method == "GET":
 		form = Newspaperforms(request.POST or None)
 	else:
@@ -21,6 +21,7 @@ def all_newspapers(request):
 	queryset=Newspapers.objects.all()
 	context={
 		"set":queryset,
+		'user':request.user.username,
 	}
 	context.update(csrf(request))
 	return render(request,"all_newspapers.html",context)

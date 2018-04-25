@@ -11,11 +11,16 @@ import django
 django.setup()
 
 from users.models import Users
+from newspapers.models import Newspapers
+from pincode.models import Pincode
 
-data = csv.reader(open("/Users/priyam/Desktop/django/old_projects/beta/beta/user_id.csv"),delimiter=",")
+# data = csv.reader(open("/Users/priyam/Desktop/django/old_projects/beta/beta/newspaper_data.csv"),delimiter=",")
+
+data = csv.reader(open("/Users/priyam/Desktop/django/old_projects/beta/beta/pincode.csv"),delimiter=",")
 
 for row in data:
-	instance = Users()
-	instance.user_id=row[0]
+	instance = Pincode()
+	instance.pin=row[0]
+	
 	instance.save()
 	

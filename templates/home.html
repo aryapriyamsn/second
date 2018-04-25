@@ -57,8 +57,9 @@
 	<div style="margin-top: 2em;">
 		<div class="col-md-12 col-sm-12 gap">
 			<div style="background-color: rgba(255, 255, 255, 0.62); border-radius:5px;padding:5px">
-				<div class="col-md-12">
+				<div class="col-md-12 web_steps">
 					<div style="text-align: center;"><h2>Steps To Follow</h2></div>
+					<div class=""><img src="{% static 'images/web_steps.png' %}" alt="" class="img-fluid"></div>
 				</div>
 			</div>
 		</div>
@@ -66,8 +67,8 @@
 </div>
 <!--  -->
 <!-- Assistance -->
-<div class="container">
-	<div style="margin-top: 2em;">
+<!-- <div class="container">
+	<div>
 		<div class="col-md-12 col-sm-12 gap">
 			<div style="background-color: rgba(255, 255, 255, 0.62); border-radius:5px;padding:5px">
 				<div class="col-md-12">
@@ -77,20 +78,18 @@
 			</div>
 		</div>
 	</div>
-</div>
+</div> -->
 <!--  -->
 <!-- let us help you -->
-	<div class="container">
+	<div class="" style="margin-top: 6em;">
 		<div class="site_head col-md-12">
 			<div class="site_head_child">
 				<div>
-					<h4>Let Us Help You</h4>
-					<p style="color:#0f1626;">Do let us know how we can help you. Please feel free to email us with your issue as the subject line or give us a call at anytime, any day. ( the details are in the contact section )</p>
-					<form action="{% url 'req_contact' %} " method="POST" onSubmit="return validateForm();" name="req-contact-form">{%csrf_token%}
-						<input  id="contact-no" type="text" name="contact" placeholder="Enter your contact no." required>
-						<button type="submit" href="{% url 'req_contact' %} " class="btn btn-lg btn-success btn-custom" name="request-contact"    id="requect_contact"> request contact</button>
-					</form>	
+					<h4 style="color: #fafafa;font-weight: 100;font-size: 35px;">Let Us Help You</h4>
+					<p style="color:#fafafa;font-weight: 100;">Do let us know how we can help you. Please feel free to email us with your issue as the subject line or give us a call at anytime, any day. ( the details are in the contact section )</p>
+					{% include 'help_form.html' %}
 				</div>
+				<div></div>
 			</div>
 		</div>
 	</div>
@@ -99,41 +98,35 @@
 
 <!-- intro video -->
 <div class="container">
-	<div style="margin-top: 2em;">
+	<div style="margin-top: 6em;">
 		<div class="col-md-12 col-sm-12 gap">
 			<div style="background-color: rgba(255, 255, 255, 0.62); border-radius:5px;padding:5px">
 				<div class="col-md-12">
 					<div style="text-align: center;"><h2>Introductory Video</h2></div>
+					<div class="offers_block">
+						<div class="block1">
+							<div class="block1_child1"><span style="margin: auto;">Cashback & Offers</span></div>
+							<div class="block1_child2"><span style="margin: auto;">Exciting offers to gain double the value you pay and much more with stipulated discount on every newspaper.</span></div>
+							<div class="block1_child3"><a style="margin: auto;cursor: pointer;">View details &raquo;</a></div>  
+						</div>
+						<div class="block2">
+							<div class="block2_child1"><span style="margin: auto;">Online Payment</span></div>
+							<div class="block2_child2"><span style="margin: auto;">No more waiting for your local vendor to pay the bill. Just pay the bill wherever and whenever you want with variety of online payment options.</span></div>
+							<div class="block2_child3"><a style="margin: auto;cursor: pointer;">View details &raquo;</a></div> 
+						</div>
+						<div class="block3">
+							<div class="block3_child1"><span style="margin: auto;">Work with us</span></div>
+							<div class="block3_child2"><span style="margin: auto;">We are providing a holistic solution to newspaper industry, which till date is either not available or scattered in bits and pieces. If you want to work with us feel free to contact us.</span></div>
+							<div class="block3_child3"><a href=" {% url 'workwithus' %} "style="margin: auto;cursor: pointer;">View details &raquo;</a></div> 
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
 <!--  -->
-<div class="container" >
-	<div class=" row container marketing gap" style="margin-left:0px;">
-		<!-- Three columns of text below the carousel -->
-			
-				<div class="col-lg-4 mid" style="background-color: rgba(255, 255, 255, 0.46);">
-				 
-				  <h4>Cashback & offers</h4>
-				  <p class="para">Exciting offers to gain double the value you pay and much more with stipulated discount on every newspaper.<br>
-				  	<br><br><br></p>
-				  <p><a class="gap btn btn-lg btn-success btn-custom" href="#" role="button">View details &raquo;</a></p>
-				</div><!-- /.col-lg-4 -->
-				<div class="col-lg-4 mid" style="background-color: rgba(255, 255, 255, 0.52);">
-				  <h4>Online payment</h4>
-				  <p class="para">No more waiting for your local vendor to pay the bill. Just pay the bill wherever and whenever you want with variety of online payment options.<br><br><br></p>
-				  <p><a class="gap btn btn-lg btn-success btn-custom" href="#" role="button">View details &raquo;</a></p>
-				</div><!-- /.col-lg-4 -->
-				<div class="col-lg-4 mid" style="background-color: rgba(255, 255, 255, 0.46);">
-				  <h4>Work with us</h4>
-				  <p class="para">We are providing a holistic solution to newspaper industry, which till date is either not available or scattered in bits and pieces. If you want to work with us feel free to contact us.<br><br></p>
-				  <p><a class="gap btn btn-lg btn-success btn-custom" href="{% url 'workwithus' %}" role="button">View details &raquo;</a></p>
-				</div>
-			<!-- /.row -->
-	</div>
-</div>
+
 
 <script>
 function validateForm() {

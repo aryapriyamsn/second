@@ -12,17 +12,6 @@ def newsletter_entry(request):
 		recipent_email= request.POST.get("recipent")
 		recipent=Newsletter(email=recipent_email)
 		recipent.save()
-		subject = "Welcome to facelook."
-		message = "Thanks for subscribing to our newsletter"
-		from_email = settings.EMAIL_HOST_USER
-		to_email = [recipent_email]
-		send_mail(
-			subject,
-			message,
-			from_email,
-			to_email,
-			fail_silently=False,
-		)
 		subject = "New Subscription."
 		message = recipent_email+" has joined newsletter reciever"
 		from_email = settings.EMAIL_HOST_USER
@@ -76,7 +65,7 @@ def contact_entry(request):
 	return render(request,'contact.html',context)
 
 def work_entry(request):
-	import ipdb; ipdb.set_trace()
+	#import ipdb; ipdb.set_trace()
 	context={}
 	if request.method == "POST":
 		name= request.POST.get("name")

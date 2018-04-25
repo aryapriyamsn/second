@@ -15,7 +15,7 @@ from newspapers.models import Newspapers
 
 @login_required(login_url='/users/login/')
 def Subscribe_paper(request):
-	import ipdb; ipdb.set_trace()
+	#import ipdb; ipdb.set_trace()
 	user=request.user
 	user=Users.objects.get(u_name=user)
 	today=datetime.date.today()

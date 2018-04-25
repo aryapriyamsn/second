@@ -5,6 +5,7 @@ from django.conf import settings
 from django.core.mail import send_mail
 from .models import Users, UserInfo
 import re
+from allauth.account.adapter import DefaultAccountAdapter
 from news_subscription.views import subscription_details
 from django.contrib.auth.decorators import login_required	
 from django.http import HttpResponse
@@ -15,7 +16,7 @@ from .forms import UserInfoForm,UsersForm
 # Create your views here.
 
 def register(request):
-	import ipdb; ipdb.set_trace()
+	#import ipdb; ipdb.set_trace()
 	context = {}
 	if request.method == 'POST':
 		try:
@@ -126,17 +127,17 @@ def register(request):
 		return render_to_response('register.html', context)
 
 def login(request):	
-		#import ipdb; ipdb.set_trace();
+		#	import ipdb; ipdb.set_trace();
 		context = {}
 		if request.method == "GET":
 			if request.user.is_authenticated():
 				context = {
-					'user': 'request.user.username',
+					'user': request.user.username,
 					'nbar' : 'account',
 					'abar':'profile',
 					}
 				context.update(csrf(request))
-				return render_to_response('login.html', context)
+				return HttpResponseRedirect('/details/subscription/')
 			else:
 				context={'user':request.user.username}
 				context.update(csrf(request))
@@ -157,15 +158,15 @@ def login(request):
 					name=Users.objects.get(mob_no=name)
 					name=str(name.u_name)
 				else:
-					context={'status':"invalid login details"}
+					context={'status':"invalid login details",'user': request.user.username,}
 					context.update(csrf(request))
 					return render_to_response("register.html", context)
 
 			user = auth.authenticate(username = name, password = password)
 			if not Users.objects.filter(u_name=user).exists():
-				context={'status':"invalid login details"}
+				context={'status':"invalid login details",'user': request.user.username,}
 				context.update(csrf(request))
-				return render_to_response("vendor-login.html", context)
+				return render_to_response("login.html", context)
 			if request.user.is_authenticated():
 				context={
 					'status':"one User already logged in",
@@ -200,6 +201,7 @@ def login(request):
 					else:
 						context = {
 							'status' : "Account Deactivated",
+							'user': request.user.username,
 							'nbar' : 'account',
 							'abar':'profile',
 							}	
@@ -330,7 +332,7 @@ def profile_update(request,username):
 
 @login_required(login_url='users/(?P<username>[\w.@+-]+)/')
 def profile_edit(request,username):
-	#import ipdb; ipdb.set_trace()
+	import ipdb; ipdb.set_trace()
 	title = "Edit Our Profile Here"
 
 	instance=get_object_or_404(User,username=username)
@@ -356,13 +358,16 @@ def profile_edit(request,username):
 		else:
 
 			user = request.user
+			s_user = request.user
 			user = Users.objects.get(u_name=user)
 			form = UserInfoForm(request.POST,request.FILES or None, instance=instance)
 			if form.is_valid():
 				instance = form.save(commit=False)
+				mob=request.POST.get('mob_no')
 				
 				instance.save()
-
+				Users.objects.filter(u_name=s_user).update(mob_no=mob)
+			
 			print request.POST.get('full_name')
 			print request.POST.get('sex')
 			context = {
@@ -387,12 +392,15 @@ def profile_edit(request,username):
 			return subscription_details(request)
 		else:
 			user = request.user
+			s_user = request.user
 			user = Users.objects.get(u_name=user)
 			form = UserInfoForm(request.POST,request.FILES or None)
 			if form.is_valid():
 				instance = form.save(commit=False)
 				instance.user_link=user
+				mob=request.POST.get('mob_no')
 				instance.save()
+				Users.objects.filter(u_name=s_user).update(mob_no=mob)
 
 			print request.POST.get('full_name')
 			print request.POST.get('sex')
@@ -448,3 +456,69 @@ def profile(request,username):
 		}
 	context.update(csrf(request))
 	return render(request, "profile.html", context)
+
+
+def changepassword(request,username):
+	#import ipdb; ipdb.set_trace()
+	context={}
+	if request.method=='POST':
+		user=User.objects.get(username=username)
+		login_user=Users.objects.get(u_name=user)
+		if request.user == user:
+			last_password=request.POST.get("last_password")
+			new_password=request.POST.get("new_password")
+			confirm_password=request.POST.get("confirm_password")
+			if new_password==confirm_password:
+				print(user.password)
+				if user.check_password(last_password):
+					user.set_password(new_password)
+					user.save()
+					auth.login(request,user)
+					print(user.password)
+					context={
+						'message':"Password changed successfully.",
+						'user':login_user,
+						'status': True,
+					}
+					context.update(csrf(request))
+					return render(request,'changepassword.html',context)
+				else:
+					context={'message':"your last password is wrong",
+						'user':login_user,
+						'status': False,
+					}
+			else:
+				context={'message':'new passwords did not match',
+					'user':login_user,
+					'status': False,
+				}
+		else:
+			context={
+				'message':'You are not authorised to change '+login_user+"'s password",
+				'user':login_user,
+				'status': False,
+			}
+	else:
+		context={
+				'message':'Please provide the details.',
+				'user':request.user.username,
+				'status': False,
+			}
+
+	context.update(csrf(request))
+	return render(request,'changepassword.html',context)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

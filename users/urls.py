@@ -1,5 +1,5 @@
 from django.conf.urls import url
-from .views import register,login,logout, profile_edit,loginuser,profile
+from .views import register,login,logout, profile_edit,loginuser,profile,changepassword
 
 
 
@@ -11,6 +11,7 @@ urlpatterns = [
     #url(r'^edit_profile/$', profile_edit, name = 'profile_edit'),
     url(r'^(?P<username>[\w.@+-]+)/profile/$', profile, name = 'profile'),
     url(r'^(?P<username>[\w.@+-]+)/$', loginuser, name = 'loginuser'),
+    url(r'^change-password/(?P<username>[\w.@+-]+)/$', changepassword, name = 'changepassword'),
     #url(r'^(?P<username>[\w.@+-]+)/update_profile/$',profile_update, name = 'update_profile'),
     url(r'^(?P<username>[\w.@+-]+)/edit_profile/$', profile_edit, name = 'edit_profile'),
 ]

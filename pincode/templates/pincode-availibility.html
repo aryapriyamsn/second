@@ -6,6 +6,7 @@
   <form class="example" action="{% url 'check' %}" method="POST" style="margin:auto;max-width:300px">{%csrf_token%}
           <input type="text" placeholder="Pincode" name="pin" style="">
           <button type="submit"><i class="fa fa-search"></i></button>
+  </form>
 </div>
 
 {% endblock content %}

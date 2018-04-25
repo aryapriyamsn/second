@@ -129,24 +129,24 @@
 			{%endif%}
   			<!-- unpaid paperss -->
 
-  			
+  			{%if unpaid%}
 		<div class="newspaper-other-headings">
 			Your Unpaid bills
 		</div>
 		<div id="newspaper-section" style="">
-			{%if unpaid%}
+			
 			{% for item in unpaid%}
 				<div class="space">&nbsp</div>
 				<div class="paper-title">{{ item.sub_paper }}</div>
 				<div class="paper-start-date">{{item.start_date}}</div>
-				<div class="paper-bill"><span style="background:#212529;color:#fff">&nbsp&nbsp &#8377 {{item.bill}} &nbsp&nbsp</span> </div> 
+				<div class="paper-bill"><span style="background:#212529;color:#fff">&nbsp&nbsp &#8377 {{item.bill}} &nbsp&nbsp</span> 
+				</div> 
 			{%endfor%}
-		{% endif %}
+		
 		</div>
-  
-			
-	
-	</div>
+		{% endif %}
+  </div>
+  		
   
 	<!-- account content block ends-->
 

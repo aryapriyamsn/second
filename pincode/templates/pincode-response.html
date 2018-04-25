@@ -1,6 +1,43 @@
 {% extends 'base.html' %}
 {% block content %}
-<div>
-	{{message}}
-</div>
+{% if not pin %}
+	<div>
+		{{message}}. Try again.
+	</div>
+	<br>
+	<form class="example" action="{% url 'check' %}" method="POST" style="margin:auto;max-width:300px">{%csrf_token%}
+          <input type="text" placeholder="Pincode" name="pin" style="">
+          <button type="submit"><i class="fa fa-search"></i></button>
+  	</form>
+{% else %}
+	<div>
+		{{message}}
+	</div>
+	<div>Fill the form to grab your newspaper.</div>
+	<div class="card-body" style="display:flex;">
+        <div class='col-md-6' style="text-align:center;margin:auto">
+			<form class="form-signin" action="{% url 'signup'%}" method="POST">
+				{% csrf_token %}
+				<label class="sr-only">Name</label>
+				<input class='form-control' type = "text"  placeholder= 'Name' name='u_name' required autofocus>
+				<br><br>
+				<label class="sr-only">Mobile No.</label>
+				<input class='form-control' type = "integer"  id= 'mob_no' placeholder="Mob. no" name="mobile" required >
+				<br><br>
+				
+				<label class= "sr-only">E-mail Id</label>
+				<input class='form-control' type="email"  placeholder="email" name = 'email' id="email" required >
+				<br><br>
+				<label class = "sr-only">Password</label>
+				<input class='form-control' type="password" name="password1" placeholder="Password" id="password1" required >
+				<br><br>
+				<label class="sr-only">Again Password</label>
+				<input class='form-control' type="password" name="password2" placeholder="Confirm password" id="password2" required >
+				<br><br>
+				<button  class="btn btn-primary " type="submit" style="width:100%">Sign up</button>	
+			</form>
+		</div>
+	</div>
+	
+{%endif%}
 {% endblock content %}
